@@ -1,0 +1,116 @@
+/* Additional includes go here */
+
+<%SPL::CodeGen::implementationPrologue($model);%>
+
+<%
+
+my $outputAttribute = "";
+
+if (defined $model->getOutputPortAt(0)) {
+    sub getOutputAttribute {
+        my $outputPort = $model->getOutputPortAt(0);
+        for my $attribute (@{$outputPort->getAttributes()}) {
+            if (SPL::CodeGen::Type::isBlob($attribute->getSPLType())) {
+                return $attribute->getName();
+            }
+        }
+
+        die("Output port 0 must contain a blob type");
+    }
+
+    $outputAttribute = getOutputAttribute();
+} else {
+    die("Need to have an output port attached");
+}
+
+%>
+
+// Constructor
+MY_OPERATOR::MY_OPERATOR()
+{
+    // Initialization code goes here    
+}
+
+// Destructor
+MY_OPERATOR::~MY_OPERATOR() 
+{
+    // Finalization code goes here
+}
+
+// Notify port readiness
+void MY_OPERATOR::allPortsReady() 
+{
+    <%
+    my $port = $model->getParameterByName("port")->getValueAt(0)->getCppExpression();
+    %>
+
+    pthread_cond_init(&pthreadCond, NULL);
+    //pthread_mutex_init(&pthreadMutex, NULL);
+    // Create worker threads
+    createThreads(1);
+
+    // Start the TCP server
+    streams_boost::asio::io_service io_service;
+    tcp::endpoint endpoint(tcp::v4(), <%=$port%>);
+    printf("[ProtobufTCPSource] Starting server on port %d\n", <%=$port%>);
+    protobufServer = new ProtobufServer(io_service, endpoint, &pthreadMutex, &pthreadCond, &tupleQueue);
+    io_service.run();
+}
+
+void * MY_OPERATOR::tupleSubmit(void * voidPtr) {
+    op_wrapper * opWrapperPtr = static_cast<op_wrapper *>(voidPtr);
+
+    OPort0Type outTuple;
+    SPL::blob blobBuffer((unsigned char *) opWrapperPtr->buffer->data(), opWrapperPtr->buffer->size());
+    outTuple.set_<%=$outputAttribute%>(blobBuffer);
+    opWrapperPtr->object->submit(outTuple, 0);
+
+    delete opWrapperPtr->buffer;
+    opWrapperPtr->buffer = 0;
+    delete opWrapperPtr;
+
+    return NULL;
+}
+ 
+// Notify pending shutdown
+void MY_OPERATOR::prepareToShutdown() 
+{
+    delete protobufServer;
+    // This is an asynchronous call
+}
+
+// Processing for source and threaded operators   
+void MY_OPERATOR::process(uint32_t idx)
+{
+    while (!getPE().getShutdownRequested()) {
+        if (!this->tupleQueue.empty()) {
+            std::string * buffer = new std::string(this->tupleQueue.front());
+            op_wrapper * threadStruct = new op_wrapper;
+            threadStruct->object = this;
+            threadStruct->buffer = buffer;
+            pthread_t threadId;
+
+            MY_OPERATOR::tupleSubmit(threadStruct);
+            this->tupleQueue.pop();
+        } else {
+            pthread_cond_wait(&pthreadCond, &pthreadMutex);
+        }
+    }
+}
+
+// Tuple processing for mutating ports 
+void MY_OPERATOR::process(Tuple & tuple, uint32_t port)
+{
+}
+
+// Tuple processing for non-mutating ports
+void MY_OPERATOR::process(Tuple const & tuple, uint32_t port)
+{
+}
+
+// Punctuation processing
+void MY_OPERATOR::process(Punctuation const & punct, uint32_t port)
+{
+}
+
+<%SPL::CodeGen::implementationEpilogue($model);%>
