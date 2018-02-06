@@ -208,7 +208,7 @@ sub generateVariableMapping {
                 print "\t"x($depth) . join("::", split(/\./, $protoField->{"fqdn"})) . " $valName;\n";
 
                 foreach my $subField (@{$protoField->{"fields"}}) {
-                    my $newSplType = $splType . "::" . $subField->{"name"} . "_type";
+                    my $newSplType = $splType . "::" . $subField->{"name"} . "__type";
                     my $newSplGetter = $splGetter;
                     unless ($field->{"name"} eq "") {
                         $newSplGetter .= ".get_" . $field->{"name"} . "_()";
