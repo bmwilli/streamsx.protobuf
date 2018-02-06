@@ -22,13 +22,6 @@ sub generateVariableName {
     return join("", @{$varName});
 }
 
-#sub defaultErrorHandler {
-#    SPL::CodeGen::println("Got an error!");
-#    SPL::CodeGen::println($_[0]->YYCurtok);
-#    SPL::CodeGen::println($_[0]->YYCurval . "\n");
-#    SPL::CodeGen::println("\"" . $_[0]->YYData->{DATA} . "\"");
-#}
-
 my $appDirectory = $model->getContext()->getApplicationDirectory();
 my $relDirectory = $appDirectory;
 
@@ -46,7 +39,6 @@ if (defined $model->getParameterByName("protoDirectory")) {
     $protoDirectory = $relDirectory;
 }
 
-my $tmpDirectory = generateVariableName();
 my $cppDirectory = $model->getContext()->getApplicationDirectory() . "/impl/include";
 my $libDirectory = $model->getContext()->getApplicationDirectory() . "/impl/lib";
 my $protoRootFile = $model->getParameterByName("protoRootFile")->getValueAt(0)->getSPLExpression();
@@ -56,9 +48,6 @@ $protoDirectory =~ s/\"//g;
 my $protoRootSource = $protoDirectory . "/" . $protoRootFile;
 
 my $protos = ParseTreeGen::parseProtoFile($protoDirectory, $protoRootFile);
-#foreach my $key (@{$protos->{"messages"}->{"me.bwest.MyMessage"}->{"fields"}}) {
-#    SPL::CodeGen::println($key);
-#}
 
 my $protoFileList = "";
 foreach my $file (@{$protos->{"files"}}) {
@@ -70,7 +59,6 @@ SPL::CodeGen::println("[$opName] Creating impl/lib and impl/include directories"
 `mkdir -p $libDirectory`;
 
 my $protocCommand = "protoc --proto_path=$protoDirectory --cpp_out=$cppDirectory $protoFileList";
-#my $protocCommand = "protoc --proto_path=$protoDirectory --cpp_out=$cppDirectory $protoRootSource";
 SPL::CodeGen::println("[$opName] Running command:\n  $protocCommand");
 `$protocCommand`;
 
@@ -80,7 +68,6 @@ foreach my $file (@{$protos->{"files"}}) {
     $file =~ s/proto$/pb.h/;
     print "#include \"$file\"\n";
 }
-
 
 my $STREAMSX_PROTOBUF_LIBPATH = $ENV{"STREAMSX_PROTOBUF_LIBPATH"};
 my $STREAMSX_PROTOBUF_INCLUDEPATH = $ENV{"STREAMSX_PROTOBUF_INCLUDEPATH"};
@@ -101,21 +88,14 @@ foreach my $file (@{$protos->{"files"}}) {
 }
 
 my $linkCommand = "g++ *.pb.o ";
-#foreach my $oFile (@{$oFiles}) {
-#    $linkCommand .= "$oFile ";
-#}
 $linkCommand .= "-shared -o $libDirectory/libcustomproto.so -L$libDirectory -L$STREAMSX_PROTOBUF_LIBPATH -lprotobuf -lprotoc";
 
 SPL::CodeGen::println("[$opName] Running command:\n  $linkCommand");
 `$linkCommand`;
 
 my $rmCommand = "rm *.pb.o";
-#foreach my $oFile (@{$oFiles}) {
-#    $rmCommand .= "$oFile ";
-#}
 SPL::CodeGen::println("[$opName] Running command:\n  $rmCommand");
 `$rmCommand`;
-
 
 sub generateVariableMapping {
     my $field = shift;
@@ -136,9 +116,10 @@ sub generateVariableMapping {
             print "\t"x$depth . "$splType $listName;\n";
 
             my $iVar = generateVariableName();
-            #my $forLoopSize = $field->{"name"};
-            #$forLoopSize =~ s/\(\)$/_size()/;
-            print "\t"x$depth . "for (int $iVar = 0; $iVar < $protoGetter." . lc($field->{"name"}) . "_size(); $iVar++) {\n";
+            my $sizeVar = generateVariableName();
+            print "\t"x$depth . "int $sizeVar = $protoGetter." . lc($field->{"name"}) . "_size();\n";
+            print "\t"x$depth . "$listName.reserve($sizeVar);\n";
+            print "\t"x$depth . "for (int $iVar = 0; $iVar < $sizeVar; $iVar++) {\n";
 
             my $newField = {
                 "label" => "required",
@@ -148,6 +129,12 @@ sub generateVariableMapping {
             };
             my $newSplType = "${splType}::value_type";
             my $newProtoGetter = "$protoGetter." . lc($field->{"name"}) . "($iVar)";
+            if (($field->{"type"} ne "primitive") and (not defined($protos->{"enums"}->{$field->{"dataType"}}))) {
+                my $gottenVariable = generateVariableName();
+                my $gottenType = join("::", split(/\./, $field->{"dataType"}));
+                print "\t"x($depth+1) . "const $gottenType *$gottenVariable = &($protoGetter." . lc($field->{"name"}) . "($iVar));\n";
+                $newProtoGetter = "(*$gottenVariable)";
+            }
             my $newAssign = sub {
                 print "\t"x($depth+1) . "$listName.push_back($_[0]);\n";
             };
@@ -155,8 +142,6 @@ sub generateVariableMapping {
 
             print "\t"x$depth . "}\n";
             $assign->($listName) . "\n";
-
-
 
         } else {
             if ($field->{"type"} eq "primitive") { # We have a primitive field (easy!)
@@ -169,15 +154,12 @@ sub generateVariableMapping {
                     my $blobValue = "SPL::blob((const unsigned char *) $assignmentValue.data(), $assignmentValue.size())";
                     $assign->($blobValue);
                 } else {
-                    #$assign->($protoGetter);
                     my $assignmentValue = "$protoGetter";
                     unless ($field->{"name"} eq "") {
                         $assignmentValue = "$protoGetter." . lc($field->{"name"}) . "()";
                     }
                     $assign->($assignmentValue);
-                    #"$protoGetter." . lc($field->{"name"}) . "()"
                 }
-
 
             } elsif (defined $protos->{"enums"}->{$field->{"dataType"}}) {
                 my $assignmentValue = "$protoGetter";
@@ -200,21 +182,23 @@ sub generateVariableMapping {
 
                 print "\t"x$depth . "}\n";
 
-
             } else { # We have a complex message field (yuck!)
                 my $protoField = $protos->{"messages"}->{$field->{"dataType"}};
 
                 my $valName = generateVariableName();
                 print "\t"x($depth) . "$splType $valName;\n";
 
+                my $gottenVariable = generateVariableName();
+                my $gottenType = join("::", split(/\./, $field->{"dataType"}));
+                if ($field->{"name"} eq "") {
+                    print "\t"x$depth . "const $gottenType *$gottenVariable = &($protoGetter);\n";
+                } else {
+                    print "\t"x$depth . "const $gottenType *$gottenVariable = &($protoGetter." . lc($field->{"name"}) . "());\n";
+                }
+
                 foreach my $subField (@{$protoField->{"fields"}}) {
                     my $newSplType = $splType ."::". $subField->{"name"} ."__type";
-                    #my $newProtoGetter = "$protoGetter.". lc($subField->{"name"}) ."()";
-                    my $newProtoGetter = $protoGetter;
-                    unless ($field->{"name"} eq "") {
-                        $newProtoGetter .= "." . lc($field->{"name"}) . "()";
-                    }
-                    #my $newProtoGetter = "$protoGetter.". lc($field->{"name"}) ."()";
+                    my $newProtoGetter = "(*$gottenVariable)";
                     my $newAssign = sub {
                         print "\t"x($depth+1) . "$valName.set_". $subField->{"name"} ."_($_[0]);\n";
                     };
@@ -266,17 +250,9 @@ sub generateVariableMapping {
     }
 }
 
-
-
-
-
-
-
-
-
-
-
-
+###############################################
+# End of the Perl variable mapping generation #
+###############################################
 
 %>
 
@@ -323,7 +299,12 @@ void MY_OPERATOR::process(uint32_t idx)
 // Tuple processing for mutating ports 
 void MY_OPERATOR::process(Tuple & tuple, uint32_t port)
 {
-    IPort0Type & inTuple = static_cast<IPort0Type &>(tuple);
+}
+
+// Tuple processing for non-mutating ports
+void MY_OPERATOR::process(Tuple const & tuple, uint32_t port)
+{
+    const IPort0Type & inTuple = static_cast<const IPort0Type &>(tuple);
 
     <%
     my $dataAttribute = $model->getParameterByName("dataAttribute")->getValueAt(0)->getCppExpression();
@@ -339,9 +320,8 @@ void MY_OPERATOR::process(Tuple & tuple, uint32_t port)
     my $rootVarName = generateVariableName();
     %>
 
-    std::string message((const char *) <%=$dataExpression%>.getData(), (size_t) <%=$dataExpression%>.getSize());
     <%=$package%>::<%=$protos->{"messages"}->{$rootMessage}->{"name"}%> <%=$rootVarName%>;
-    <%=$rootVarName%>.ParseFromString(message);
+    <%=$rootVarName%>.ParseFromArray(<%=$dataExpression%>.getData(), (size_t) <%=$dataExpression%>.getSize());
     OPort0Type outTuple;
 
     <%
@@ -356,19 +336,12 @@ void MY_OPERATOR::process(Tuple & tuple, uint32_t port)
             print "\toutTuple.set_". $field->{"name"} ."_($_[0]);\n";
         };
 
-        #$protoGetter = "$rootVarName." . lc($field->{"name"}) . "()";
-
         generateVariableMapping($field, $protos, $splType, $protoGetter, $assign, 1);
     }
 
     %>
 
     submit(outTuple, 0);
-}
-
-// Tuple processing for non-mutating ports
-void MY_OPERATOR::process(Tuple const & tuple, uint32_t port)
-{
 }
 
 // Punctuation processing

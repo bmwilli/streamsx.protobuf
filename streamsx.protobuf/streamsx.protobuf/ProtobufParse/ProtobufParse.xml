@@ -91,7 +91,7 @@ files imported from this root file.
     </parameters>
     <inputPorts>
       <inputPortOpenSet>
-        <tupleMutationAllowed>true</tupleMutationAllowed>
+        <tupleMutationAllowed>false</tupleMutationAllowed>
         <windowingMode>OptionallyWindowed</windowingMode>
         <windowPunctuationInputMode>WindowBound</windowPunctuationInputMode>
       </inputPortOpenSet>
