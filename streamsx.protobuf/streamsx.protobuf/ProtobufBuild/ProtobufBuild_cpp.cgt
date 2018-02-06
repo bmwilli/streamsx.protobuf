@@ -218,7 +218,7 @@ sub generateVariableMapping {
                     };
                     if ($subField->{"label"} eq "repeated") {
                         $newAssign = sub {
-                            print "\t"x($depth+2) . "$valName.add_" . lc($subField->{"name"}) . "($_[0]);\n";
+                            print "\t"x($depth+2) . "*$valName.add_" . lc($subField->{"name"}) . "() = $_[0];\n";
                         }
                     }
                     generateVariableMapping($subField, $protos, $newSplType, $newSplGetter, $newAssign, $depth + 1);
@@ -351,8 +351,9 @@ void MY_OPERATOR::process(Tuple & tuple, uint32_t port)
             print "\t$rootVarName.set_" . $field->{"name"} . "($_[0]);\n";
         };
         if ($field->{"label"} eq "repeated") {
+
             $assign = sub {
-                print "\t$rootVarName.add_" . $field->{"name"} . "($_[0]);\n";
+                print "\t\t*$rootVarName.add_" . lc($field->{"name"}) . "() = $_[0];\n";
             }
         }
 
