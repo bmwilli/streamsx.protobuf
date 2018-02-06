@@ -32,16 +32,12 @@ The `port` parameter specifies the port that the server will listen to.
         <library>
           <cmn:description>protobuf-server</cmn:description>
           <cmn:managedLibrary>
-            <cmn:lib>protobufserver</cmn:lib>
             <cmn:lib>streams_boost_system</cmn:lib>
             <cmn:lib>streams_boost_thread</cmn:lib>
             <cmn:lib>streams_boost_regex</cmn:lib>
             <cmn:lib>streams_boost_serialization</cmn:lib>
 
-            <cmn:libPath>../../impl/lib</cmn:libPath>
             <cmn:libPath>@STREAMS_INSTALL@/ext/lib</cmn:libPath>
-
-            <cmn:includePath>../../impl/include/ProtobufAsyncServer</cmn:includePath>
             <cmn:includePath>@STREAMS_INSTALL@/ext/include</cmn:includePath>
           </cmn:managedLibrary>
         </library>

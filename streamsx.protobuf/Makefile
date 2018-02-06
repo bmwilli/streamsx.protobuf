@@ -9,7 +9,7 @@ impl:
 	make -C impl
 
 toolkit: impl
-	spl-make-toolkit -i .
+	spl-make-toolkit -i . -m
 
 clean:
 	spl-make-toolkit -c -i .

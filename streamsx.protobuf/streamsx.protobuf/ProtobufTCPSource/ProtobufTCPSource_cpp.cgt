@@ -23,12 +23,17 @@ if (defined $model->getOutputPortAt(0)) {
     die("Need to have an output port attached");
 }
 
+my $port = $model->getParameterByName("port")->getValueAt(0)->getCppExpression();
+
 %>
 
 // Constructor
 MY_OPERATOR::MY_OPERATOR()
+: io_service_(), endpoint(tcp::v4(), <%=$port%>), acceptor_(io_service_, endpoint)
 {
     // Initialization code goes here    
+    OperatorMetrics & opm = getContext().getMetrics();
+    nConnections = &opm.createCustomMetric("nConnections", "Number of connections currently active", Metric::Counter);
 }
 
 // Destructor
@@ -40,61 +45,130 @@ MY_OPERATOR::~MY_OPERATOR()
 // Notify port readiness
 void MY_OPERATOR::allPortsReady() 
 {
-    <%
-    my $port = $model->getParameterByName("port")->getValueAt(0)->getCppExpression();
-    %>
-
-    pthread_cond_init(&pthreadCond, NULL);
-    //pthread_mutex_init(&pthreadMutex, NULL);
-    // Create worker threads
+    // Create worker thread
     createThreads(1);
-
-    // Start the TCP server
-    streams_boost::asio::io_service io_service;
-    tcp::endpoint endpoint(tcp::v4(), <%=$port%>);
-    printf("[ProtobufTCPSource] Starting server on port %d\n", <%=$port%>);
-    protobufServer = new ProtobufServer(io_service, endpoint, &pthreadMutex, &pthreadCond, &tupleQueue);
-    io_service.run();
-}
-
-void * MY_OPERATOR::tupleSubmit(void * voidPtr) {
-    op_wrapper * opWrapperPtr = static_cast<op_wrapper *>(voidPtr);
-
-    OPort0Type outTuple;
-    SPL::blob blobBuffer((unsigned char *) opWrapperPtr->buffer->data(), opWrapperPtr->buffer->size());
-    outTuple.set_<%=$outputAttribute%>(blobBuffer);
-    opWrapperPtr->object->submit(outTuple, 0);
-
-    delete opWrapperPtr->buffer;
-    opWrapperPtr->buffer = 0;
-    delete opWrapperPtr;
-
-    return NULL;
 }
  
 // Notify pending shutdown
 void MY_OPERATOR::prepareToShutdown() 
 {
-    delete protobufServer;
     // This is an asynchronous call
+    io_service_.stop();
+}
+
+void MY_OPERATOR::waitForConnection() {
+    tcp::socket *socket = new tcp::socket(io_service_);
+    MY_OPERATOR::ProtobufMessage *message = new MY_OPERATOR::ProtobufMessage;
+    acceptor_.async_accept(*socket,
+        streams_boost::bind(&MY_OPERATOR::handleConnection, this, socket, message, streams_boost::asio::placeholders::error)
+    );
+    SPLAPPTRC(L_DEBUG, "[ProtobufTCPSource] Waiting for connection.", "");
+}
+
+void MY_OPERATOR::handleConnection(tcp::socket *socket, MY_OPERATOR::ProtobufMessage *message, const streams_boost::system::error_code & ec) {
+    SPLAPPTRC(L_DEBUG, "[ProtobufTCPSource] Connection accepted.", "");
+    if (!ec) {
+        nConnections->incrementValue();
+        streams_boost::asio::async_read(*socket,
+            streams_boost::asio::buffer(&message->header.buffer, 4),
+            streams_boost::bind(&MY_OPERATOR::handleHeader, this, socket, message, streams_boost::asio::placeholders::error)
+        );
+    } else if (socket->is_open()) {
+        socket->close();
+        delete socket;
+        SPLAPPTRC(L_DEBUG, "[ProtobufTCPSource] Connection closed.", "");
+    }
+
+    this->waitForConnection();
+}
+
+void MY_OPERATOR::handleHeader(tcp::socket *socket, MY_OPERATOR::ProtobufMessage *message, const streams_boost::system::error_code & ec) {
+    SPLAPPTRC(L_INFO, "[ProtobufTCPSource] Received header.", "");
+    if (!ec) {
+        if (message->bufferSize < message->header.length) {
+            if (message->data != NULL) {
+                delete message->data;
+            }
+
+            message->data = new unsigned char[message->header.length];
+            message->bufferSize = message->header.length;
+        }
+        SPLAPPTRC(L_INFO, "[ProtobufTCPSource] Expected length " << message->header.length, "");
+        streams_boost::asio::async_read(*socket,
+            streams_boost::asio::buffer(message->data, message->header.length),
+            streams_boost::bind(&MY_OPERATOR::handleMessage, this, socket, message, streams_boost::asio::placeholders::error)
+        );
+    } else if (socket->is_open()) {
+        if (message != NULL) {
+            if (message->data != NULL) {
+                delete message->data;
+            }
+            delete message;
+        }
+
+        socket->close();
+        delete socket;
+        nConnections->incrementValue(-1);
+        SPLAPPTRC(L_DEBUG, "[ProtobufTCPSource] Connection closed.", "");
+    } else {
+        nConnections->incrementValue(-1);
+    }
+}
+
+void MY_OPERATOR::handleMessage(tcp::socket *socket, MY_OPERATOR::ProtobufMessage *message, const streams_boost::system::error_code & ec) {
+    SPLAPPTRC(L_INFO, "[ProtobufTCPSource] Received message body", "");
+    if (!ec) {
+        OPort0Type outTuple;
+        SPL::blob blobBuffer(message->data, message->header.length);
+        outTuple.set_<%=$outputAttribute%>(blobBuffer);
+        submit(outTuple, 0);
+
+        SPLAPPTRC(L_INFO, "[ProtobufTCPSource] Waiting for next header", "");
+        streams_boost::asio::async_read(*socket,
+            streams_boost::asio::buffer(&message->header.buffer, 4),
+            streams_boost::bind(&MY_OPERATOR::handleHeader, this, socket, message, streams_boost::asio::placeholders::error)
+        );
+    } else if (socket->is_open()) {
+        if (message != NULL) {
+            if (message->data != NULL) {
+                delete message->data;
+            }
+            delete message;
+        }
+
+        socket->close();
+        delete socket;
+        nConnections->incrementValue(-1);
+        SPLAPPTRC(L_DEBUG, "[ProtobufTCPSource] Connection closed.", "");
+    } else {
+        nConnections->incrementValue(-1);
+    }
 }
 
 // Processing for source and threaded operators   
 void MY_OPERATOR::process(uint32_t idx)
 {
-    while (!getPE().getShutdownRequested()) {
-        if (!this->tupleQueue.empty()) {
-            std::string * buffer = new std::string(this->tupleQueue.front());
-            op_wrapper * threadStruct = new op_wrapper;
-            threadStruct->object = this;
-            threadStruct->buffer = buffer;
-            pthread_t threadId;
+    if (idx == 0) {
+        try {
+            SPLAPPTRC(L_DEBUG, "[ProtobufTCPSource] Starting server on port " << <%=$port%>, "");
 
-            MY_OPERATOR::tupleSubmit(threadStruct);
-            this->tupleQueue.pop();
-        } else {
-            pthread_cond_wait(&pthreadCond, &pthreadMutex);
+            this->waitForConnection();
+            SPLAPPTRC(L_DEBUG, "[ProtobufTCPSource] Running I/O service.", "");
+
+            io_service_.run();
+        } catch (std::exception & e) {
+            std::cerr << e.what() << std::endl;
+        } catch (...) {
+            std::cerr << "Nonstandard exception" << std::endl << std::flush;
         }
+    } else {
+        // If createThreads(n) is changed to have more threads, this
+        // will have the extra threads support the io_service_ rather
+        // than attempting to bind to the TCP port again.
+
+        sleep(5);
+        SPLAPPTRC(L_DEBUG, "[ProtobufTCPSource] Starting I/O service worker thread: " << idx, "");
+        io_service_.run();
     }
 }
 
