@@ -37,6 +37,13 @@ the runtime library path to include the generated `libcustomproto.so` that is pl
 The `streamsx.protobuf` toolkit requires the Protobuf libraries are installed on the compiling
 machine. Two environment variables are required: `$STREAMSX_PROTOBUF_LIBPATH` and `$STREAMSX_PROTOBUF_INCLUDEPATH`.
 
+The following statements will set them for protobuf and protobuf-devel that are available with CentOS:
+
+```
+export STREAMSX_PROTOBUF_LIBPATH=/usr/lib64
+export STREAMSX_PROTOBUF_INCLUDEPATH=/usr/include/google/protobuf
+```
+
 ## Generating schemas
 
 This toolkit contains a script under `streamsx.protobuf/bin` called `spl-schema-from-protobuf`. This script
