@@ -21,7 +21,7 @@ composite Sample1 {
         stream<blob data> serialized = ProtobufBuild(records) {
             param
                 protoMessage: "tutorial.AddressBook";
-                protoDirectory: ".";
+                protoDirectory: "impl";
                 protoRootFile: "addressbook.proto";
         }
 
@@ -29,7 +29,7 @@ composite Sample1 {
             param
                 dataAttribute: data;
                 protoMessage: "tutorial.AddressBook";
-                protoDirectory: ".";
+                protoDirectory: "impl";
                 protoRootFile: "addressbook.proto";
         }
 
