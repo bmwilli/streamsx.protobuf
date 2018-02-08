@@ -1,16 +1,24 @@
-.PHONY: all clean
+.PHONY: all distributed clean 
 
-APPDIR = $(shell basename `pwd`)
-PROTOFILE = "addressbook.proto"
-MAIN_COMPOSITE = "Sample1"
-all:
-	../../streamsx.protobuf/bin/spl-schema-from-protobuf . ${PROTOFILE}
-	sc -c -M ${MAIN_COMPOSITE} -t ../../streamsx.protobuf:$(STREAMS_SPLPATH) -w -Wl,-rpath="'\$$\$$ORIGIN/../toolkits/$(APPDIR)/impl/lib'"
-	#sc -M ${MAIN_COMPOSITE} -t ../../streamsx.protobuf:$(STREAMS_SPLPATH) -w -Wl,-rpath="'\$$\$$ORIGIN/../toolkits/$(APPDIR)/impl/lib'"
+SPLC_FLAGS ?= -a -t ../../streamsx.protobuf:$(STREAMS_SPLPATH) -w -Wl,-rpath="'\$$\$$ORIGIN/../toolkits/$(APPDIR)/impl/lib'"
+SPLC = $(STREAMS_INSTALL)/bin/sc
+SPL_CMD_ARGS ?= 
+SPL_MAIN_COMPOSITE = Sample1
+PROTOFILEBASE = addressbook
+PROTOFILE = $(PROTOFILEBASE).proto
+PROTOPACKAGE = tutorial
 
-clean:
-	rm -rf output
-	rm -f toolkit.xml
-	rm -rf impl/lib
-	rm -rf tutorial
-	rm -rf impl
+all: protoschema distributed
+
+protoschema:
+	../../streamsx.protobuf/bin/spl-schema-from-protobuf impl $(PROTOFILE)
+
+distributed:
+	$(SPLC) $(SPLC_FLAGS) -M $(SPL_MAIN_COMPOSITE) $(SPL_CMD_ARGS)
+
+clean: 
+	$(SPLC) $(SPLC_FLAGS) -C -M $(SPL_MAIN_COMPOSITE)
+	rm -f impl/include/$(PROTOFILEBASE).*
+	rm -f impl/lib/libcustomproto.so
+	rm -rf $(PROTOPACKAGE)
+
