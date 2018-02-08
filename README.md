@@ -54,7 +54,7 @@ export STREAMSX_PROTOBUF_LIBPATH=/usr/lib64
 export STREAMSX_PROTOBUF_INCLUDEPATH=/usr/include/google/protobuf
 ```
 
-## Generating SPL schemasa from .proto files
+## Generating SPL schemas from .proto files
 
 This toolkit contains a script under `streamsx.protobuf/bin` called `spl-schema-from-protobuf`. This script
 will generate tuples in SPL to match the Protobuf messages in .proto files.
