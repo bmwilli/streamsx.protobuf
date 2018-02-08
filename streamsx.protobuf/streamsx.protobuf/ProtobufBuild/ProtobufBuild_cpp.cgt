@@ -84,7 +84,7 @@ foreach my $file (@{$protos->{"files"}}) {
 
 my $STREAMSX_PROTOBUF_LIBPATH = $ENV{"STREAMSX_PROTOBUF_LIBPATH"};
 my $STREAMSX_PROTOBUF_INCLUDEPATH = $ENV{"STREAMSX_PROTOBUF_INCLUDEPATH"};
-my $gccCommand = "g++ -c -fPIC ";
+my $gccCommand = "g++ -O3 -c -fPIC ";
 foreach my $file (@{$protos->{"files"}}) {
     $file =~ s/pb\.h$/pb.cc/;
     $gccCommand .= $cppDirectory . "/" . $file . " ";
@@ -100,7 +100,7 @@ foreach my $file (@{$protos->{"files"}}) {
     push @{$oFiles}, $file;
 }
 
-my $linkCommand = "g++ *.pb.o ";
+my $linkCommand = "g++ -O3 *.pb.o ";
 #foreach my $oFile (@{$oFiles}) {
 #    $linkCommand .= "$oFile ";
 #}
