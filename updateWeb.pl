@@ -84,6 +84,43 @@ sub updateIndexHtml() {
     system("cd $pagesLocation; git add index.html");
 }
 
+
+sub updateReadmeMD() {
+
+    my $infile = "$pagesLocation/README.md";
+    my $outfile = "$pagesLocation/README.md.tmp";
+    open(IN,"<$pagesLocation/README.md") or die "Could not open $infile";
+    open(OUT,">$pagesLocation/README.md.tmp") or die "Could not open $outfile";
+    while(<IN>) {
+	if (/<!--\s*BEGIN SAMPLE LIST\s*-->/) {
+	    print OUT $_;
+	    my $foundEnd = 0;
+	    print OUT "<ul>\n";
+	    for my $app (keys %samples) {
+		print OUT "<li><a href=\"$samples{$app}\">$app</a>\n";
+	    }
+	    print OUT "</ul>\n";
+	    while(<IN>) {
+		if (/<!--\s*END SAMPLE LIST\s*-->/) {
+		    $foundEnd = 1;
+		    print OUT $_;
+		    last;
+		}
+	    }
+	    die "Did not find END SAMPLE LIST" if !$foundEnd;
+	}
+	else {
+	    print OUT $_;
+	}
+    }
+
+    close OUT;
+    close IN;
+    system("cp $outfile $infile");
+    system("cd $pagesLocation; git add README.md");
+}
+
+
 sub lookForApp($$) {
     my ($dir,$exclude) = @_;
     $debug && print "lookForApp($dir,$exclude)\n";
@@ -143,7 +180,10 @@ sub main() {
     $? >> 8 == 0 or die "Cannot set branch to gh-pages in $pagesLocation";
     # handle the toolkit; need a better way of specifying which toolkit.
     lookForApp(".","test");
-    updateIndexHtml();
+
+    #updateIndexHtml();
+    updateReadmeMD();
+
     my $changes = `cd $pagesLocation; git status -s | grep -v "^?" | wc -l`;
     chomp $changes;
     print "$changes files changed\n";

@@ -10,8 +10,8 @@ doc:
 	make -C streamsx.protobuf doc || exit 1
 
 samples:
-	make -C streamsx.protobuf.samples || exit 1
+	make -C samples || exit 1
 
 clean:
-	make -C streamsx.protobuf.samples clean
+	make -C samples clean
 	make -C streamsx.protobuf clean
