@@ -1,0 +1,594 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?workdir /home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/temp/dita/references?><?path2project ../?><reference id="spldoc_reference_operator_model" xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/" ditaarch:DITAArchVersion="1.2" domains="(topic reference)                            (topic hi-d)                             (topic ut-d)                             (topic indexing-d)                            (topic hazard-d)                            (topic abbrev-d)                            (topic pr-d)                             (topic sw-d)                            (topic ui-d)    " class="- topic/topic       reference/reference " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="reference:1">
+<title class="- topic/title " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="title:1">SPL Operator Model</title>
+<refbody class="- topic/body        reference/refbody " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="refbody:1">
+<section id="overview" class="- topic/section " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="section:1">
+<p class="- topic/p " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="p:1">
+An operator model can be used to describe a C++ primitive operator or a Java primitive operator. The set of elements that can 
+be present in a Java operator model is a strict subset of the ones that can be present in a C++ operator model, with the 
+exception of a special element used for JVM related configurations.
+</p>
+</section>
+<section id="context" class="- topic/section " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="section:2">
+<title outputclass="splhead-1" class="- topic/title " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="title:2">Context</title>
+<p class="- topic/p " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="p:2">
+The context element describes the properties that apply to the operator as a whole and are not associated
+with particular parameters or ports of the operator. It also includes common definitions that are referenced in 
+other places in the operator model. 
+</p>
+<dl class="- topic/dl " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dl:1">
+  <dlentry id="context__description" class="- topic/dlentry " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dlentry:1"> 
+    <dt class="- topic/dt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dt:1">Description</dt>
+    <dd class="- topic/dd " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dd:1">The description element, which is optional, provides an overview of the operator.</dd>
+  </dlentry>
+  <dlentry id="context__metrics" class="- topic/dlentry " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dlentry:2"> 
+    <dt class="- topic/dt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dt:2">Metrics</dt>
+    <dd class="- topic/dd " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dd:2">The metrics element, which is optional, contains the list of metrics exposed by the operator. 
+It is structured as a list of metric elements, where each metric element contains a name, a description, and a kind. 
+      <dl class="- topic/dl " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dl:2">
+        <dlentry id="context__metrics_kind_counter" class="- topic/dlentry " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dlentry:3"> 
+          <dt class="- topic/dt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dt:3">Kind: Counter</dt>
+          <dd class="- topic/dd " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dd:3">Represents metrics whose values are either non-decreasing or non-increasing.
+          </dd>
+        </dlentry>
+        <dlentry id="context__metrics_kind_gauge" class="- topic/dlentry " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dlentry:4"> 
+          <dt class="- topic/dt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dt:4">Kind: Gauge</dt>
+          <dd class="- topic/dd " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dd:4">Represent metrics that can change their values freely, that is, they can go up or down.
+          </dd>
+        </dlentry>
+        <dlentry id="context__metrics_kind_time" class="- topic/dlentry " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dlentry:5"> 
+          <dt class="- topic/dt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dt:5">Kind: Time</dt>
+          <dd class="- topic/dd " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dd:5">Represents metrics that denote a point in time.
+          </dd>
+        </dlentry>
+      </dl>
+    </dd>
+  </dlentry>
+  <dlentry id="context__customliterals" class="- topic/dlentry " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dlentry:6">
+    <dt class="- topic/dt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dt:6">Custom Literals</dt>
+    <dd class="- topic/dd " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dd:6">The customLiterals element, which is optional, captures the identifiers that may appear in parameter 
+configurations of an operator. It is structured as a list of enumeration elements. For instance, a Source
+operator may support different source formats, in which case we can have an enumeration called FileFormat 
+that will contain values <tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="tt:1">{csv, xml, bin}</tt>. 
+    </dd>
+  </dlentry>
+  <dlentry id="context__customoutputfunctions" class="- topic/dlentry " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dlentry:7">
+    <dt class="- topic/dt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dt:7">Custom Output Functions (C++ only)</dt>
+    <dd class="- topic/dd " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dd:7">The customOutputFunctions element, which is optional, captures the output function prototypes used by an operator 
+in its output attribute assignments. It is structured as a list of customOutputFunction elements, where each enumeration 
+contains a name and a list of output function prototypes. For instance, an Aggregate operator may support relational 
+aggregations, in which case we can have an enumeration called RelationalAggs that will contain output functions 
+<tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="tt:2">{Min, Max, Avg, Sum, and so on}</tt>.
+    </dd>
+  </dlentry>
+  <dlentry id="context__dependencies" class="- topic/dlentry " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dlentry:8"> 
+    <dt class="- topic/dt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dt:8">Dependencies (Optional)</dt>
+    <dd class="- topic/dd " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dd:8">A sequence of one or more library elements, each representing a library dependency. 
+The library element format is exactly the same as the one used for operator models.
+     <dl class="- topic/dl " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dl:3">
+        <dlentry id="context__dependencies__description" class="- topic/dlentry " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dlentry:9">
+          <dt class="- topic/dt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dt:9">Description (Optional)</dt>
+          <dd class="- topic/dd " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dd:9">A description of the library
+          </dd>
+        </dlentry>
+        <dlentry id="context__dependencies__managedlibrary" class="- topic/dlentry " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dlentry:10">
+          <dt class="- topic/dt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dt:10">Managed Library</dt>
+          <dd class="- topic/dd " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dd:10">Specifies the details of the individual library artifacts. The paths can
+contain environment variables embedded between @ signs (for example: <tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="tt:3">@FOO_FFT_HOME@/lib</tt>),
+which will be fully resolved by the SPL compiler at compile time.
+            <dl class="- topic/dl " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dl:4">
+              <dlentry id="context__dependencies__managedlibrary__lib" class="- topic/dlentry " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dlentry:11">
+                <dt class="- topic/dt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dt:11">lib (Optional)</dt>
+                <dd class="- topic/dd " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dd:11">Specifies a name to be passed to C++ compiler&apos;s <tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="tt:4">-l</tt> argument 
+(such as <tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="tt:5">fft</tt> which will be translated into <tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="tt:6">-lfft</tt> when passed to the linker)
+                </dd>
+              </dlentry>
+              <dlentry id="context__dependencies__managedlibrary__libpath" class="- topic/dlentry " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dlentry:12">
+                <dt class="- topic/dt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dt:12">libPath (Optional)</dt>
+                <dd class="- topic/dd " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dd:12">Specifies a path to be passed to C++ compiler&apos;s <tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="tt:7">-L</tt> argument.
+                </dd>
+              </dlentry>
+              <dlentry id="context__dependencies__managedlibrary__includepath" class="- topic/dlentry " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dlentry:13">
+                <dt class="- topic/dt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dt:13">includePath (Optional)</dt>
+                <dd class="- topic/dd " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dd:13">Specifies a path to be passed to C++ compiler&apos;s <tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="tt:8">-I</tt> argument. 
+                </dd>
+              </dlentry>
+              <dlentry id="context__dependencies__managedlibrary__command" class="- topic/dlentry " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dlentry:14">
+                <dt class="- topic/dt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dt:14">command (Optional)</dt>
+                <dd class="- topic/dd " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dd:14">A path to a program that will be executed to retrieve <tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="tt:9">includePath, libPath</tt>, and <tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="tt:10">lib</tt>
+information. If the path to the program is relative, it is assumed to be rooted at the directory of the
+operator model. The program is executed three times, each time with a different argument, namely <tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="tt:11">lib, 
+libPath</tt>, and <tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="tt:12">includePath</tt>. 1 The standard output from these executions will be read and each line 
+(trimmed of white spaces) will be added to one of the <tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="tt:13">lib, libPath</tt>, and <tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="tt:14">includePath</tt> elements, depending
+on the type of the execution. A line that begins with # will be ignored. Relative paths are assumed to
+be rooted at the directory where the operator model XML document resides.
+                </dd>
+              </dlentry>
+            </dl>
+          </dd>
+        </dlentry>
+    </dl>
+    </dd>
+  </dlentry>
+  <dlentry id="context__providessinglethreadedexecutioncontext" class="- topic/dlentry " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dlentry:15">
+    <dt class="- topic/dt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dt:15">Provides Single Threaded Execution Context (C++ only)</dt>
+    <dd class="- topic/dd " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dd:15"><p class="- topic/p " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="p:3">The <tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="tt:15">providesSingleThreadedContext</tt> element describes the threading semantics of the
+operator with respect to the flow of execution. An operator provides a single threaded execution context, 
+if and only if: 
+      <ul class="- topic/ul " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="ul:1">
+        <li class="- topic/li " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="li:1">It does not perform concurrent submit calls unless its process method(s) are called concurrently.</li>
+        <li class="- topic/li " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="li:2">Its submit calls complete before the process call that triggered the submission completes.</li>
+      </ul>
+    </p>
+    <p class="- topic/p " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="p:4">Both source and non-source operators have process methods, and the definition above applies
+globally. Based on this definition, if an operator has submit calls that are not triggered by a process
+call, such as those triggered by a time-based event, then that operator does not provide a single threaded
+execution context. Note that this definition does not require a submit call to execute under the same 
+thread that executes the process call which triggered the submission (even though in the common case 
+they execute under the same thread).
+    </p>
+    <p class="- topic/p " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="p:5">There are several valid values for this property:
+<ul class="- topic/ul " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="ul:2">
+  <li class="- topic/li " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="li:3"><tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="tt:16">Never:</tt> Instances of this operator never provide a single threaded execution context.</li>
+  <li class="- topic/li " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="li:4"><tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="tt:17">Always:</tt> Instances of this operator always provide a single threaded execution context.</li>
+  <li class="- topic/li " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="li:5"><tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="tt:18">WindowBound:</tt> Instances of this operator that do not specify time-based window eviction
+policies or time-based window trigger policies provide a single threaded execution context.</li>
+  <li class="- topic/li " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="li:6"><tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="tt:19">WindowEvictionBound:</tt> Instances of this operator that do not specify time-based window 
+eviction policies provide a single threaded execution context.</li>
+  <li class="- topic/li " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="li:7"><tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="tt:20">WindowTriggerBound:</tt> Instances of this operator that do not specify time-based window trigger
+policies provide a single threaded execution context.</li>
+  <li class="- topic/li " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="li:8"><tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="tt:21">WindowPartitionEvictionBound:</tt> Instances of this operator use a thread to implement 
+partition eviction. Use this setting if tuples are submitted from the onWindowPartitionEvictionSelection event.</li>
+</ul>
+    </p>
+<p class="- topic/p " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="p:6">
+As an example, consider a <tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="tt:22">Filter</tt> operator. Unless its process method is being called concurrently,
+the <tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="tt:23">Filter</tt> operator does not make concurrent submit calls. Its submit calls are triggered by incoming
+tuples. When it receives a tuple via a process call, it makes a submit call if the received tuple passes the
+filter condition, and that submit call completes before the process call that triggered it is complete. As a
+result, all instances of a <tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="tt:24">Filter</tt> operator provide a single threaded context and the setting
+<tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="tt:25">Always</tt> is appropriate.
+</p>
+<p class="- topic/p " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="p:7">
+Implementation note: The <tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="tt:26">providesSingleThreadedContext</tt> element is used to enable the SPL runtime 
+to avoid unnecessary thread synchronization. While setting it to the value Never is safe for all operators, 
+it would prevent optimizations that reduce synchronization overhead when the operator does provide a single 
+threaded context. Specifying a value other than Never that is inconsistent with the threading semantics 
+implemented by the operator will result in undefined behavior.
+</p>
+    </dd>
+  </dlentry>
+  <dlentry id="context__incrementalcompilationstrategy" class="- topic/dlentry " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dlentry:16">
+    <dt class="- topic/dt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dt:16">Incremental Compilation Strategy (C++ only)</dt>
+    <dd class="- topic/dd " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dd:16"><p class="- topic/p " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="p:8">Specifies how the compiler should manage incremental compilation of operators. The choices are:
+       <ul class="- topic/ul " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="ul:3">
+         <li class="- topic/li " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="li:9"><tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="tt:27">SourceDependent</tt>: In this mode the compiler will only regenerate the operator source 
+         if it is out-of-date with the SPL source or the code generator 
+         for that operator. This is the default mode.</li>
+         <li class="- topic/li " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="li:10"><tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="tt:28">ResultDependent:</tt> In this mode the compiler always generates the operator source, but 
+         only updates the source files if they differ from what exists prior to the compile. Use this 
+         mode if the operator code generator relies on external configurations that are not captured by the parameterization given in the SPL source.
+         </li>
+       </ul>
+    </p></dd>
+   </dlentry>
+   <dlentry id="context__allowCustomLogic" class="- topic/dlentry " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dlentry:17">
+    <dt class="- topic/dt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dt:17">Allow Custom Logic (C++ only)</dt>
+    <dd class="- topic/dd " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dd:17"><p class="- topic/p " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="p:9">This optional element specifies whether or not the use of an operator is permitted to 
+have a logic clause specifying either state, <tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="tt:29">onTuple</tt> or <tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="tt:30">onPunct</tt> processing. When set to false no 
+logic clause may be specified for the given operator. The default, in the absence of this element, 
+is true.
+    </p></dd>
+   </dlentry>
+   <dlentry id="context__codetemplate" class="- topic/dlentry " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dlentry:18">
+    <dt class="- topic/dt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dt:18">Code Template</dt>
+    <dd class="- topic/dd " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dd:18"><p class="- topic/p " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="p:10">This optional element specifies one or more code templates for the operator. 
+These will show up in IDE&apos;s context sensitive content assist menus and SPLDOC documents. 
+Each code template has a name attribute that names it, a description element that describes it, 
+and a value element, which is a string that contains the boilerplate code for the template. 
+When the template is used in the IDE, the boilerplate code is embedded into the source code. 
+The parts of the code that are in the form ${name} are used to indicate the pieces that must be 
+customized by the user. The IDE will use the identifier specified within the ${} to indicate the customizable 
+portions. One example for the Barrier operator is as follows:
+</p>
+<p class="- topic/p " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="p:11">
+
+<codeblock xml:space="preserve" class="+ topic/pre pr-d/codeblock " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="codeblock:1">
+&lt;codeTemplates&gt;
+  &lt;codeTemplate name=&quot;Barrier&quot;&gt;
+    &lt;description&gt;Basic Barrier template&lt;/description&gt;
+    &lt;template&gt;
+      &lt;![CDATA[ 
+        stream&lt;${schema}&gt; ${outputStream} = Barrier(${inputStream1};${inputStream2}) 
+        {
+          param
+            ${parameter}: ${parameterExpression};
+          output
+            ${outputStream}: ${outputExpression};
+          ${cursor} 
+        }
+      ]]&gt;
+    &lt;template&gt;
+  &lt;/codeTemplate&gt;
+&lt;/codeTemplates&gt;
+</codeblock>
+
+    </p></dd>
+   </dlentry>
+   <dlentry id="context__splexpressiontree" class="- topic/dlentry " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dlentry:19">
+    <dt class="- topic/dt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dt:19">SPL Expression Tree (C++ only)</dt>
+    <dd class="- topic/dd " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dd:19"><p class="- topic/p " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="p:12">An optional element that controls the generation of SPL expression trees for use in generic C++ 
+    primitive operators.</p>
+      <ul class="- topic/ul " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="ul:4">
+      <li class="- topic/li " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="li:11"><tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="tt:31">param</tt> - If set to <tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="tt:32">true</tt>, the SPL Expression Trees are generated for parameters.</li>
+      <li class="- topic/li " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="li:12"><tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="tt:33">output</tt> - If set to <tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="tt:34">true</tt>, the SPL Expression Trees are generated for output.</li>
+      <li class="- topic/li " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="li:13"><tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="tt:35">cppCode</tt> -  If set to <tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="tt:36">true</tt>, each node in the generated operator instance XML is enhanced with C++ code using templates.
+This C++ code can be used to generate the C++ code for an SPL expression. For example, for the SPL code:
+<p class="- topic/p " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="p:13">
+<codeblock xml:space="preserve" class="+ topic/pre pr-d/codeblock " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="codeblock:2">
+param predicates : {a = &quot;a&quot; == In.letter, b = &quot;b&quot; == In.letter};
+</codeblock>
+</p>
+<p class="- topic/p " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="p:14">
+The generated SPL expression tree includes:
+</p>
+<p class="- topic/p " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="p:15">
+
+<codeblock xml:space="preserve" class="+ topic/pre pr-d/codeblock " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="codeblock:3">
+&lt;expressionTree cppCode=&quot;SPL::BeJwrMUoyTEwyTAIAC7UCCQ({attr:0}, {attr:1})&quot;&gt;
+  &lt;literal cppCode=&quot;SPL::BeJwrMUoyTEwyTAIAC7UCCQ({attr:0}, {attr:1})&quot; type=&quot;1&quot;&gt;
+    &lt;tuple count=&quot;2&quot; cppCode=&quot;SPL::BeJwrMUoyTEwyTAIAC7UCCQ({attr:0}, {attr:1})&quot; type=&quot;1&quot;&gt;
+      &lt;attr id=&quot;a&quot;&gt;
+        &lt;value cppCode=&quot;({Lhs} == {Rhs})&quot; type=&quot;2&quot;&gt;
+          &lt;expn cppCode=&quot;({Lhs} == {Rhs})&quot;&gt;
+            &lt;binary cppCode=&quot;({Lhs} == {Rhs})&quot; op=&quot;==&quot; type=&quot;2&quot;&gt;
+              &lt;lhs cppCode=&quot;SPL::rstring(&quot;a&quot;)&quot;&gt;
+                &lt;literal cppCode=&quot;SPL::rstring(&quot;a&quot;)&quot; type=&quot;0&quot;&gt;&quot;a&quot;&lt;/literal&gt;
+              &lt;/lhs&gt;
+              &lt;rhs cppCode=&quot;iport$0.get_letter()&quot;&gt;
+                &lt;attribute attribute=&quot;letter&quot; cppCode=&quot;iport$0.get_letter()&quot; type=&quot;0&quot;&gt;
+                  &lt;lhs cppCode=&quot;iport$0&quot;&gt;
+                    &lt;stream cppCode=&quot;iport$0&quot; name=&quot;In&quot; port=&quot;0&quot; type=&quot;3&quot;/&gt;
+                  &lt;/lhs&gt;
+                &lt;/attribute&gt;
+              &lt;/rhs&gt;
+            &lt;/binary&gt;
+          &lt;/expn&gt;
+        &lt;/value&gt;
+      &lt;/attr&gt;
+</codeblock>
+
+</p>
+<p class="- topic/p " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="p:16">
+The templates (for example, <tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="tt:37">{Lhs}, {attr:0}</tt>) are used to ensure that code replacement is well defined.
+</p>
+<p class="- topic/p " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="p:17">
+These expressions represent the SPL expression, but are available in a form that can easily be walked. 
+Perl objects are derived from <tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="tt:38">SPL::Operator::Instance::ExpressionTree</tt>, and have a kind, type, 
+and methods to access the fields of the expression. <tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="tt:39">ExpressionTreeVisitor</tt> is a visitor pattern
+provided to allow easy walking of the expression tree. For more information, see the 
+<i class="+ topic/ph hi-d/i " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="i:1">IBM Streams Processing Language Code Generation API Documentation</i>.
+</p>
+      </li>
+      </ul>
+    </dd>
+   </dlentry>   
+   <dlentry id="context__capability" class="- topic/dlentry " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dlentry:20">
+    <dt class="- topic/dt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dt:20">Operating System Capabilities (C++ only)</dt>
+    <dd class="- topic/dd " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dd:20"><p class="- topic/p " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="p:18">This optional list of elements specifies special privileges for the
+operator. IBM Streams supports the Linux capabilities model via the
+capability element. You can include any number of elements to specify
+the exact privileges your operator requires. For example,
+<tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="tt:40">&lt;capability&gt;CAP_NET_RAW+eip&lt;/capability&gt;</tt>
+indicates that the operator
+needs permission to access raw sockets. Note that the IBM Streams
+instance must be configured to allow PE processes to run with special
+operating system capabilities.
+    </p></dd>
+   </dlentry>
+</dl>
+</section>
+
+<section id="input_port_set" class="- topic/section " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="section:3">
+<title outputclass="splhead-1" class="- topic/title " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="title:3">Input Port Set</title>
+<p class="- topic/p " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="p:19">
+Input ports are defined in terms of port sets. A port set is a fixed number of ports that share the same configuration. 
+This avoids repetition of the same configuration for different ports. A port set can be open, in which case it can 
+contain zero or more ports with the same configuration. An inputPorts element contains zero or more inputPortSet elements, 
+followed by an optional inputPortOpenSet element.
+</p>
+<dl class="- topic/dl " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dl:5">
+  <dlentry id="input_port_set__cardinality" class="- topic/dlentry " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dlentry:21">
+    <dt class="- topic/dt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dt:21">Cardinality</dt>
+    <dd class="- topic/dd " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dd:21">Defines the number of ports that the port set represents. This property applies to non-open port sets.
+    </dd>
+  </dlentry>
+  <dlentry id="input_port_set__optional" class="- topic/dlentry " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dlentry:22">
+    <dt class="- topic/dt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dt:22">Optional</dt>
+    <dd class="- topic/dd " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dd:22">A boolean which specifies whether the input port set is optional.
+    </dd>
+  </dlentry>
+    <dlentry id="input_port_set__controlport" class="- topic/dlentry " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dlentry:23">
+    <dt class="- topic/dt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dt:23">Control Port</dt>
+    <dd class="- topic/dd " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dd:23">The optional controlPort element tells the compiler that tuples received on this port will be
+used only to control the operator, and no tuples will be submitted when tuples are processed on this port.
+If not specified, the value is false. The SPL compiler will emit warnings when loops are found in the 
+operator graph, as this can lead to deadlock or infinite recursion. Setting controlPort to true will tell 
+the compiler that this port will not submit further tuples, and that this is an expected (and harmless) 
+feedback loop, so no warning will be emitted for this port. 
+   </dd>
+  </dlentry>
+  <dlentry id="input_port_set__windowingmode" class="- topic/dlentry " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dlentry:24">
+    <dt class="- topic/dt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dt:24">Windowing Mode</dt>
+    <dd class="- topic/dd " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dd:24">The windowingMode element specifies the valid windowing configurations for the port. Options include NonWindowed, 
+Windowed, and OptionallyWindowed.
+   </dd>
+  </dlentry>
+  <dlentry id="input_port_set__windowpunctuationinputmode" class="- topic/dlentry " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dlentry:25">
+    <dt class="- topic/dt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dt:25">Window Punctuation Input Mode</dt>
+    <dd class="- topic/dd " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dd:25">
+The windowPunctuationInputMode element specifies the punctuation semantics of the input port. The valid options are:
+<ul class="- topic/ul " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="ul:5">
+<li class="- topic/li " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="li:14"><tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="tt:41">Expecting</tt> - This port expects window punctuations in order for the operator to function correctly and thus must be fed a punctuated stream.</li>
+<li class="- topic/li " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="li:15"><tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="tt:42">Oblivious</tt> - This port does not require punctuations in order for the operator to work correctly and thus has no restrictions on the connections that can be attached to it.</li>
+<li class="- topic/li " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="li:16"><tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="tt:43">WindowBound</tt> - This port is an Expecting port if it has a punctuation based window, and an Oblivious port otherwise.</li>
+</ul>
+   </dd>
+  </dlentry>
+  <dlentry id="input_port_set__windowexpressionmode" class="- topic/dlentry " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dlentry:26">
+    <dt class="- topic/dt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dt:26">Window Expression Mode</dt>
+    <dd class="- topic/dd " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dd:26">This element tells the compiler what type of windowing expressions are valid. If not specified, the default is <tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="tt:44">Constant</tt>. 
+    <ul class="- topic/ul " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="ul:6">
+      <li class="- topic/li " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="li:17"><tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="tt:45">Constant</tt> - Expressions in <tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="tt:46">count</tt>, <tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="tt:47">time</tt>, and <tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="tt:48">delta</tt> must be constants that can 
+    be evaluated at compile time, or if runtime expressions that do not reference 
+    input tuple attributes are valid.</li>
+      <li class="- topic/li " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="li:18"><tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="tt:49">AttributeFree</tt> - Expressions cannot reference input tuple attributes. An expression such as time 
+<tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="tt:50">((int32) getSubmissionTimeValue(&quot;timeParam&quot;))</tt> can be used. For delta, only the second argument is allowed to be a runtime
+attribute-free expression. The first argument is still an attribute from the input stream.</li>
+    </ul>
+   </dd>
+  </dlentry>
+  <dlentry id="input_port_set_rewriteallowedforwindowexpression" class="- topic/dlentry " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dlentry:27">
+    <dt class="- topic/dt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dt:27">Rewrite Allowed for Window Expression (C++ only)</dt>
+    <dd class="- topic/dd " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dd:27">If set to true, this boolean element tells the compiler that it may rewrite the window expression the same way
+the <tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="tt:51">rewriteAllowed</tt> element rewrites the expressions that appear in the parameter values. For more information
+about the rewriteAllowed element, see <tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="tt:52">Parameters</tt>. If the <tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="tt:53">rewriteAllowedForWindowExpression</tt> element is not specified, 
+by default the value is set to false. <tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="tt:54">rewriteAllowedForWindowExpression</tt> must be false (or omitted) if the 
+C++ primitive operator wants to examine the value as a literal.
+    </dd>
+  </dlentry>
+  <dlentry id="input_port_set_tuplemutationallowed" class="- topic/dlentry " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dlentry:28">
+    <dt class="- topic/dt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dt:28">Tuple Mutation Allowed</dt>
+    <dd class="- topic/dd " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dd:28">The tupleMutationAllowed element defines whether the processing logic attached to the input port (this includes both
+the logic associated with the operator&apos;s process functions and the processing done as part of the onTuple clauses specified
+in the SPL code) can mutate an incoming tuple. It can be set to true for operators that desire to modify the tuples they receive.
+   </dd>
+  </dlentry>
+</dl>
+
+</section>
+<section id="output_port_set" class="- topic/section " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="section:4">
+  <title outputclass="splhead-1" class="- topic/title " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="title:4">Output Port Set</title>
+  <p class="- topic/p " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="p:20">
+Output ports are defined in terms of port sets, just like input ports. A port set is a fixed number of ports that share 
+the same configuration. This avoids repetition of the same configuration for different ports. A port set can be open, in 
+which case it can contain zero or more ports with the same configuration. An outputPorts element contains zero or more 
+outputPortSet elements, followed by an optional outputPortOpenSet element.
+  </p>
+  <dl class="- topic/dl " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dl:6">
+  <dlentry id="output_port_set__cardinality" class="- topic/dlentry " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dlentry:29">
+    <dt class="- topic/dt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dt:29">Cardinality</dt>
+    <dd class="- topic/dd " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dd:29">Defines the number of ports that the port set represents. This property applies to non-open port sets.
+    </dd>
+  </dlentry>
+  <dlentry id="output_port_set__optional" class="- topic/dlentry " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dlentry:30">
+    <dt class="- topic/dt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dt:30">Optional</dt>
+    <dd class="- topic/dd " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dd:30">A boolean which specifies whether the output port set is optional.
+    </dd>
+  </dlentry>
+    <dlentry id="output_port_set_expressionmode" class="- topic/dlentry " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dlentry:31">
+    <dt class="- topic/dt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dt:31">Expression Mode (C++ only)</dt>
+    <dd class="- topic/dd " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dd:31">
+The expressionMode element describes the valid syntax of the attribute assignments made on this port. 
+Note that an expressionMode value of CustomLiteral is not valid for output ports and will result in 
+a compilation error. Valid values for the expression mode are:
+<ul class="- topic/ul " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="ul:7">
+<li class="- topic/li " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="li:19"><tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="tt:55">Attribute:</tt> This means that the assignments made to output attributes of this
+port need to be stream attributes. For example: output <tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="tt:56">Out : x = In.y;</tt>, but not <tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="tt:57">x = In.y.z</tt>.</li>
+<li class="- topic/li " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="li:20"><tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="tt:58">AttributeFree:</tt> This means that the assignments made to output attributes of this port cannot reference 
+any input stream attributes. For example: output <tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="tt:59">Out : x = 3 + random(3);</tt>, but not <tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="tt:60">x = In.x + 3</tt>.</li>
+<li class="- topic/li " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="li:21"><tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="tt:61">Constant:</tt> This means that the assignments made to output attributes of this port need to be 
+compile-time evaluatable to a constant. For example: output <tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="tt:62">Out : x = 3 + pow(2, 3);</tt>, but not <tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="tt:63">x = random(3)</tt>.</li>
+<li class="- topic/li " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="li:22"><tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="tt:64">Expression:</tt> This is the most flexible expression mode, any SPL expression of correct type can appear as an assignment to the output attributes of this port. For example: output<tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="tt:65"> Out : x = A.y + B.z;</tt>.</li>
+<li class="- topic/li " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="li:23"><tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="tt:66">Nonexistent:</tt> This means that output attribute assignments cannot be specified in the SPL source for this port.</li>
+</ul>
+    </dd>
+  </dlentry>
+    <dlentry id="output_port_set__autoassignment" class="- topic/dlentry " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dlentry:32">
+    <dt class="- topic/dt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dt:32">Auto Assignment</dt>
+    <dd class="- topic/dd " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dd:32">
+The <tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="tt:67">autoAssignment</tt> element defines whether unassigned attributes will be automatically assigned from the attributes of the input ports.
+If set to true, the SPL compiler will rewrite (at compile-time) the operator invocation as if the unassigned output attributes have 
+explicit assignments in the output section. For each output attribute that is missing an assignment, an input attribute that has 
+the same name and type will be assigned to it. If there is no such input attribute or if there are more than one, an error is 
+reported at compile-time. Note that an expressionMode value of Constant is incompatible with an autoAssignment value of true. 
+This combination will result in a compilation error.
+    </dd>
+  </dlentry>
+  <dlentry id="output_port_set__completeassignment" class="- topic/dlentry " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dlentry:33">
+    <dt class="- topic/dt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dt:33">Complete Assignment</dt>
+    <dd class="- topic/dd " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dd:33">
+The <tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="tt:68">completeAssignment</tt> element defines if all the output port attributes need to be assigned in order to have a valid
+invocation of the operator. This is checked at compile-time. If an operator has this element set to true in its operator model
+and if not all output attributes have assignments after the auto-assignment step (if requested) for a given instance of this 
+operator, an error will be reported.
+    </dd>
+  </dlentry>
+  <dlentry id="output_port_set__rewriteallowed" class="- topic/dlentry " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dlentry:34">
+    <dt class="- topic/dt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dt:34">Rewrite Allowed (C++ only)</dt>
+    <dd class="- topic/dd " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dd:34">
+The <tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="tt:69">rewriteAllowed</tt> element specifies whether the compiler is allowed to rewrite the expressions that appear in the output
+attribute assignments for this port.
+    </dd>
+  </dlentry>
+  <dlentry id="output_port_set__outputfunctions" class="- topic/dlentry " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dlentry:35">
+    <dt class="- topic/dt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dt:35">Output Functions</dt>
+    <dd class="- topic/dd " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dd:35">
+The outputFunctions element defines the valid custom output functions that can appear in output attribute assignments. 
+It is optional. When present, it contains two sub-elements: the type element, which defines the name of the custom output
+function type, as in RelationalAggs; and the default element, which defines the default output function to be used when
+performing auto-assignment of output attributes. This value should be a valid function name for the custom output function
+type that is being used (as in Last for RelationalAggs). Note that if the user code specifies an output attribute assignment
+without an output function for a port that expects an output function,
+the default output function will be inserted automatically.
+    </dd>
+  </dlentry>
+    <dlentry id="output_port_set__finalpunctuationoutputscope" class="- topic/dlentry " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dlentry:36">
+    <dt class="- topic/dt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dt:36">Final Punctuation Port Scope</dt>
+    <dd class="- topic/dd " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dd:36">
+The <tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="tt:70">finalPunctuationPortScope</tt> element, which is optional, specifies the set of input ports to be used by the SPL language
+runtime for final punctuation forwarding. By default, operators that have both input and output ports will automatically
+forward final punctuations from their input ports to their output ports. This is achieved by generating a final punctuation
+on an output port when a final punctuation is received on all input ports. The finalPunctuationPortScope can be used to
+limit the set of input ports to be used for forwarding the final punctuation. This element can also be used to turn off
+auto-forwarding of final punctuations, by setting the set of input ports to use for forwarding to the empty set. In this case, 
+the operator developer is responsible for ensuring that the output port gets a final punctuation.
+    </dd>
+  </dlentry>
+  <dlentry id="output_port_set__windowpunctuationoutputmode" class="- topic/dlentry " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dlentry:37">
+    <dt class="- topic/dt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dt:37">Window Punctuation Output Mode</dt>
+    <dd class="- topic/dd " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dd:37">
+The windowPunctuationOutputMode specifies the window punctuation semantics of the output port. The options are:
+<ul class="- topic/ul " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="ul:8">
+<li class="- topic/li " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="li:24"><tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="tt:71">Generating</tt> - This port generates window punctuations.</li>
+<li class="- topic/li " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="li:25"><tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="tt:72">Free</tt> - This port is free of window punctuations.</li>
+<li class="- topic/li " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="li:26"><tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="tt:73">Preserving</tt> - This port preserves the received window punctuations. If an operator has more than one
+input port, then the windowPunctuationInputPort element must be specified in order to identify which input port&apos;s
+punctuation is being preserved.</li>
+</ul>
+    </dd>
+  </dlentry>
+  <dlentry id="output_port_set__tuplemutationallowed" class="- topic/dlentry " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dlentry:38">
+    <dt class="- topic/dt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dt:38">Tuple Mutation Allowed</dt>
+    <dd class="- topic/dd " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dd:38">
+The <tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="tt:74">tupleMutationAllowed</tt> element defines whether this operator permits the downstream operators to mutate the output
+tuples submitted to this port via the submit call. If set to true, then the processing logic of the operator should expect
+that the tuples it submits to this port are modified as a result of the submit call.
+    </dd>
+  </dlentry>
+  <dlentry id="output_port_set__windowpunctuationinputport" class="- topic/dlentry " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dlentry:39">
+    <dt class="- topic/dt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dt:39">Window Punctuation Input Port</dt>
+    <dd class="- topic/dd " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dd:39">
+As mentioned above, the <tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="tt:75">windowPunctuationInputPort</tt> element associates an input port with a punctuation 
+preserving output port. This element may only be specified if the output port&apos;s window punctuation mode is Preserving. 
+The windowPunctuationInputPort can be set to -1, which has the same semantics as a missing windowPunctuationInputPort element. 
+It is important to note that punctuation forwarding for window punctuations is not performed automatically by the SPL 
+language runtime (unlike final punctuations) and the operator model is used to inform the SPL compiler about the behavior 
+that is being implemented by the operator. For more information, see the
+<i class="+ topic/ph hi-d/i " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="i:2">IBM Streams Processing Language Toolkit Development Reference</i>.
+    </dd>
+  </dlentry>
+  <dlentry id="output_port_set__outputassignmentportscope" class="- topic/dlentry " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dlentry:40">
+    <dt class="- topic/dt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dt:40">Output Assignment Port Scope</dt>
+    <dd class="- topic/dd " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dd:40">
+ The <tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="tt:76">outputAssignmentPortScope</tt> optionally limits which input port attributes may appear in output assignments on this port. 
+ If a scope is specified, only attributes from the ports specified by the scope
+ may appear in the output assignments for that port.   
+    </dd>
+  </dlentry>
+</dl>
+</section>
+
+<section id="parameters" class="- topic/section " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="section:5">
+<title outputclass="splhead-1" class="- topic/title " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="title:5">Parameters</title>
+<p class="- topic/p " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="p:21">
+The parameters element describes the valid parameters an operator can be configured with. 
+It also describes the valid syntax for such parameter configurations.
+</p>
+<dl class="- topic/dl " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dl:7">
+  <dlentry id="parameters__allowany" class="- topic/dlentry " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dlentry:41">
+    <dt class="- topic/dt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dt:41">Allow Any</dt>
+    <dd class="- topic/dd " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dd:41">This element is a boolean flag that determines whether an operator can take arbitrary parameters, with no restrictions. 
+An operator can take arbitrary parameters, yet still specify additional parameters and associated restrictions.
+    </dd>
+  </dlentry>
+  <dlentry id="parameters__parameter" class="- topic/dlentry " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dlentry:42">
+    <dt class="- topic/dt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dt:42">Parameter</dt>
+    <dd class="- topic/dd " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dd:42"><p class="- topic/p " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="p:22">Each parameter element contains several subelements.
+    </p>
+      <dl class="- topic/dl " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dl:8">
+       <dlentry id="parameters__parameter__name" class="- topic/dlentry " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dlentry:43">
+         <dt class="- topic/dt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dt:43">Name</dt>
+         <dd class="- topic/dd " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dd:43">The <tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="tt:77">name</tt> element is the name of the parameter as it will appear in the SPL source code. 
+For example, a <tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="tt:78">Functor</tt> operator may have a <tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="tt:79">filter</tt> parameter.</dd>
+       </dlentry>
+       <dlentry id="parameters__parameter__description" class="- topic/dlentry " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dlentry:44">
+         <dt class="- topic/dt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dt:44">Description</dt>
+         <dd class="- topic/dd " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dd:44">An optional description of this parameter.</dd>
+       </dlentry>
+       <dlentry id="parameters__parameter__optional" class="- topic/dlentry " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dlentry:45">
+         <dt class="- topic/dt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dt:45">Optional</dt>
+         <dd class="- topic/dd " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dd:45">A boolean which specifies whether this parameter is optional. A value of false implies that the parameter 
+         must be specified in the SPL source code. </dd>
+       </dlentry>
+       <dlentry id="parameters__parameter__rewriteallowed" class="- topic/dlentry " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dlentry:46">
+         <dt class="- topic/dt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dt:46">Rewrite Allowed (C++ only)</dt>
+         <dd class="- topic/dd " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dd:46">This boolean parameter allows the compiler to rewrite the expressions that appear in this parameter&apos;s 
+values by substituting literals (including those resulting from compile-time evaluation step) with variables whose
+values are loaded at runtime. This enables the compiler to generate less code for operators that differ slightly
+in their parameter configurations. In certain cases, the operator code generators may want to look into the parameter
+value, in order to generate different code based on the particular value found or perform compile-time validation. 
+For example, <tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="tt:80">format: csv</tt> may result in generating specialized code for a Source operator. In such cases, expression
+rewrite should be turned off.</dd>
+       </dlentry>
+       <dlentry id="parameters__parameter__expressionmode" class="- topic/dlentry " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dlentry:47">
+         <dt class="- topic/dt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dt:47">Expression Mode</dt>
+         <dd class="- topic/dd " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dd:47">
+           <ul class="- topic/ul " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="ul:9">
+             <li class="- topic/li " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="li:27"><tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="tt:81">Attribute</tt> - Restricts the parameter values to stream attributes.</li>
+             <li class="- topic/li " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="li:28"><tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="tt:82">AttributeFree</tt> - The parameter value is an expression that does not 
+contain a reference to a stream attribute.</li>
+             <li class="- topic/li " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="li:29"><tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="tt:83">Constant (C++ only)</tt> - The parameter values need to be compile-time evaluatable to a constant.</li>
+             <li class="- topic/li " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="li:30"><tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="tt:84">CustomLiteral</tt> - Restricts the parameter values to valid values from one of the custom
+literal enumerations defined in the context section of the model</li>
+             <li class="- topic/li " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="li:31"><tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="tt:85">Expression (C++ only)</tt> - The most flexible expression mode, where any SPL expression of correct type
+can appear as a parameter value. </li>
+           </ul>
+         </dd>
+       </dlentry>
+       <dlentry id="parameters__parameter__type" class="- topic/dlentry " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dlentry:48">
+         <dt class="- topic/dt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dt:48">Type</dt>
+         <dd class="- topic/dd " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dd:48">The <tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="tt:86">type</tt> of a parameter is either the SPL type of its values (such as <tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="tt:87">list&lt;ustring&gt;</tt>) 
+or a custom literal name (such as <tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="tt:88">SourceFormat</tt>). The type can also be omitted, in which case any SPL type 
+will match. The type subelement of a parameter can have an empty value, which has the same semantics as a missing 
+type element.
+         </dd>
+       </dlentry>
+       <dlentry id="parameters__parameter__cardinality" class="- topic/dlentry " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dlentry:49">
+         <dt class="- topic/dt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dt:49">Cardinality</dt>
+         <dd class="- topic/dd " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dd:49">The maximum number of values the parameter accepts. If omitted or the value is -1, the number of values is 
+assumed to be unbounded. The number of parameter values must match the cardinality. The cardinality subelement can take a 
+value of -1, which has the same semantics as a missing cardinality element.
+         </dd>
+       </dlentry>
+       <dlentry id="parameters__parameter__portScope" class="- topic/dlentry " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dlentry:50">
+         <dt class="- topic/dt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dt:50">Port Scope (C++ only)</dt>
+         <dd class="- topic/dd " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dd:50">This element is used to limit the stream attributes that appear in a parameter value to a specific 
+input port or to a list of input ports. Port indices start from 0. When omitted, there are no restrictions on stream attributes.
+         </dd>
+       </dlentry>
+       <dlentry id="parameters__parameter__customOutputFunction" class="- topic/dlentry " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dlentry:51">
+         <dt class="- topic/dt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dt:51">Custom Output Function (C++ only)</dt>
+         <dd class="- topic/dd " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/references/OperatorModel.xml" xtrc="dd:51">This optional element of a parameter specifies the name of a custom output function set defined in the context
+element, and makes the functions defined in that set visible during the compilation of a parameter. It is the responsibility
+of the operator to generate correct C++ code that involves custom output functions with the parameter, in the same manner as
+it would be for a use in an output clause.
+         </dd>
+       </dlentry>
+      </dl>
+    </dd>
+  </dlentry>
+</dl> 
+</section>
+</refbody>
+</reference>

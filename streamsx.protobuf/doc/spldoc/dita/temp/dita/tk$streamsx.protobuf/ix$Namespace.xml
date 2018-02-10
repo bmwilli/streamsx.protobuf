@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?workdir /home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/temp/dita/tk$streamsx.protobuf?><?path2project ../?><reference id="spldoc_index" xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/" ditaarch:DITAArchVersion="1.2" domains="(topic reference)                            (topic hi-d)                             (topic ut-d)                             (topic indexing-d)                            (topic hazard-d)                            (topic abbrev-d)                            (topic pr-d)                             (topic sw-d)                            (topic ui-d)    " class="- topic/topic       reference/reference " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/ix$Namespace.xml" xtrc="reference:1">
+<title class="- topic/title " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/ix$Namespace.xml" xtrc="title:1">Namespaces: streamsx.protobuf 1.0.0.0</title>
+<refbody class="- topic/body        reference/refbody " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/ix$Namespace.xml" xtrc="refbody:1">
+<section class="- topic/section " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/ix$Namespace.xml" xtrc="section:1">
+<p class="- topic/p " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/ix$Namespace.xml" xtrc="p:1">
+<xref href="../toolkits/toolkits.xml" class="- topic/xref " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/ix$Namespace.xml" xtrc="xref:1">Toolkits</xref> &gt; <xref href="tk$streamsx.protobuf.xml" class="- topic/xref " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/ix$Namespace.xml" xtrc="xref:2">streamsx.protobuf 1.0.0.0</xref> &gt; Namespaces</p>
+</section>
+<section class="- topic/section " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/ix$Namespace.xml" xtrc="section:2">
+  <title outputclass="splhead-1" class="- topic/title " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/ix$Namespace.xml" xtrc="title:2">Namespaces</title>
+<dl class="- topic/dl " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/ix$Namespace.xml" xtrc="dl:1">
+<dlentry class="- topic/dlentry " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/ix$Namespace.xml" xtrc="dlentry:1">
+  <dt class="- topic/dt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/ix$Namespace.xml" xtrc="dt:1"><xref href="ns$streamsx.protobuf.xml" class="- topic/xref " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/ix$Namespace.xml" xtrc="xref:3">streamsx.protobuf</xref></dt>
+  <dd class="- topic/dd " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/ix$Namespace.xml" xtrc="dd:1"></dd>
+</dlentry>
+</dl>
+</section>
+</refbody>
+</reference>

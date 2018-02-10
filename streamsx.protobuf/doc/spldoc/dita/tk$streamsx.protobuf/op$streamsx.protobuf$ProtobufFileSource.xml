@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "reference.dtd">
+<reference id="spldoc_operator">
+<title>Operator <tt>ProtobufFileSource</tt></title>
+<refbody>
+<section>
+<p>
+<xref href="../toolkits/toolkits.xml">Toolkits</xref> &gt; <xref href="tk$streamsx.protobuf.xml">streamsx.protobuf 1.0.0.0</xref> &gt; <xref href="ns$streamsx.protobuf.xml">streamsx.protobuf</xref> &gt; ProtobufFileSource</p>
+</section>
+<section outputclass="splprimop">
+  <image href="../../image/tk$streamsx.protobuf/op$streamsx.protobuf$ProtobufFileSource.svg" width="872" height="112">
+    <alt>Primitive operator image not displayed. Problem loading file: ../../image/tk$streamsx.protobuf/op$streamsx.protobuf$ProtobufFileSource.svg
+</alt>
+  </image>
+</section>
+<section>
+
+<p><tt>ProtobufFileSource</tt> takes in a binary dump of Protobuf records in a common, but strict format. Each record is prepended by a 4 byte header indicating the length of the Protobuf message, as shown:
+</p>
+<p>
+<codeblock>
+<![CDATA[[4 bytes recordLength] [n bytes record] [4 bytes recordLength] [n bytes record] ...
+]]></codeblock>
+
+</p>
+<p>For each record found, a tuple is emitted with a blob field containing the record. The operator will use the first blob data type field it finds at compile time. If none exists, it will fail. The <tt>ProtobufFileSource</tt> takes a parameter specifying the file to be read. This file is assumed to be relative to the data directory, unless an absolute path is given.
+</p>
+  <dl><dlentry><dt><xref href="op$streamsx.protobuf$ProtobufFileSource$1.xml">Examples</xref>
+</dt><dd>
+</dd></dlentry></dl>
+</section>
+<section>
+<title outputclass="splhead-1">Summary</title>
+<dl compact="yes">
+ <dlentry>
+  <dt>Ports</dt>
+  <dd>This operator has 1 or more input ports and 1 or more output ports.</dd>
+ </dlentry>
+ <dlentry>
+  <dt>Windowing</dt>
+  <dd>This operator does not accept any windowing configurations.</dd>
+ </dlentry>
+ <dlentry>
+  <dt>Parameters</dt>
+  <dd>This operator supports 1 parameter.
+<p> Optional: 
+<xref href="#spldoc_operator/parameter__file">file</xref>
+
+</p></dd>
+ </dlentry>
+ <dlentry>
+  <dt>Metrics</dt>
+  <dd>This operator does not report any metrics.</dd>
+ </dlentry>
+</dl></section>
+<section>
+<title outputclass="splhead-1">Properties</title>
+<dl compact="yes">
+ <dlentry>
+  <dt>Implementation</dt>
+  <dd>C++</dd>
+ </dlentry>
+ <dlentry>
+  <dt><xref href="../references/OperatorModel.xml#spldoc_reference_operator_model/context__providessinglethreadedexecutioncontext">Threading</xref></dt>
+  <dd><tt>Never</tt> - Operator never provides a single threaded execution context.</dd>
+ </dlentry>
+</dl>
+</section>
+<section>
+<p outputclass="splhead-1"><b><xref href="../references/OperatorModel.xml#spldoc_reference_operator_model/input_port_set">Input Ports</xref></b></p><dl>
+  <dlentry>
+   <dt>Ports (0...)</dt>
+   <dd>
+   <dl>
+    <dlentry>
+      <dt>Properties</dt>
+      <dd>   <sl>
+     <sli><xref href="../references/OperatorModel.xml#spldoc_reference_operator_model/input_port_set__controlport">ControlPort</xref>: false
+     </sli>
+     <sli><xref href="../references/OperatorModel.xml#spldoc_reference_operator_model/input_port_set__tuplemutationallowed">TupleMutationAllowed</xref>: true
+     </sli>
+     <sli><xref href="../references/OperatorModel.xml#spldoc_reference_operator_model/input_port_set__windowingmode">WindowingMode</xref>: NonWindowed
+     </sli>
+     <sli><xref href="../references/OperatorModel.xml#spldoc_reference_operator_model/input_port_set__windowpunctuationinputmode">WindowPunctuationInputMode</xref>: Oblivious
+     </sli>
+   </sl>
+      </dd>    </dlentry>
+   </dl>
+   <p></p>
+   </dd>
+  </dlentry>
+</dl>
+</section>
+<section>
+<p outputclass="splhead-1"><b><xref href="../references/OperatorModel.xml#spldoc_reference_operator_model/output_port_set">Output Ports</xref></b></p><dl>
+  <dlentry>
+     <dt>Assignments</dt>
+     <dd>This operator does not allow assignments to output attributes.</dd>
+  </dlentry>
+</dl>
+<dl>
+  <dlentry>
+   <dt>Ports (0...)</dt>
+   <dd>
+   <p></p>
+    <p></p>
+   <dl>
+    <dlentry>
+      <dt>Properties</dt>
+      <dd>   <sl>
+     <sli><xref href="../references/OperatorModel.xml#spldoc_reference_operator_model/output_port_set__tuplemutationallowed">TupleMutationAllowed</xref>: false
+     </sli>
+     <sli><xref href="../references/OperatorModel.xml#spldoc_reference_operator_model/output_port_set__windowpunctuationoutputmode">WindowPunctuationOutputMode</xref>: Generating
+     </sli>
+   </sl>
+</dd>    </dlentry>
+   </dl>
+   <p></p>
+   </dd>
+  </dlentry>
+</dl>
+</section>
+<section>
+<p outputclass="splhead-1"><b><xref href="../references/OperatorModel.xml#spldoc_reference_operator_model/parameters">Parameters</xref></b></p>This operator supports 1 parameter.
+<p> Optional: 
+<xref href="#spldoc_operator/parameter__file">file</xref>
+
+</p><dl>
+  <dlentry id="parameter__file">
+     <dt><tt>file</tt></dt>
+     <dd>
+<p>The name of the file to be read
+</p>
+  <dl>
+    <dlentry>
+     <dt>Properties</dt>
+     <dd>   <sl>
+     <sli><xref href="../references/OperatorModel.xml#spldoc_reference_operator_model/parameters__parameter__type">Type</xref>: rstring
+     </sli>
+     <sli><xref href="../references/OperatorModel.xml#spldoc_reference_operator_model/parameters__parameter__cardinality">Cardinality</xref>: 1
+     </sli>
+     <sli><xref href="../references/OperatorModel.xml#spldoc_reference_operator_model/parameters__parameter__optional">Optional</xref>: true
+     </sli>
+     <sli><xref href="../references/OperatorModel.xml#spldoc_reference_operator_model/parameters__parameter__expressionmode">ExpressionMode</xref>: Expression
+     </sli>
+   </sl>
+     <p></p>     </dd>
+    </dlentry>
+  </dl>
+     </dd>
+  </dlentry>
+</dl>
+</section>
+</refbody>
+</reference>
+

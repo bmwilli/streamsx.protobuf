@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "reference.dtd">
+
+<reference id="spldoc_page">
+<title>Examples</title>
+<refbody>
+<section>
+<p>
+<xref href="../toolkits/toolkits.xml">Toolkits</xref> &gt; <xref href="tk$streamsx.protobuf.xml">streamsx.protobuf 1.0.0.0</xref> &gt; <xref href="ns$streamsx.protobuf.xml">streamsx.protobuf</xref> &gt; <xref href="op$streamsx.protobuf$ProtobufFileSource.xml">ProtobufFileSource</xref> &gt; Examples</p>
+</section>
+
+<section>
+</section>
+<section>
+<title>Examples
+</title>
+<p>This shows you how to read a single file.
+</p>
+<p>
+<codeblock>
+<![CDATA[stream<blob record> serializedRecords = ProtobufFileSource() {
+    param
+        file: "my/file/serialized.bin";
+}
+]]></codeblock>
+
+</p>
+<p>You can also have ProtobufFileSource take an optional input port, with an rstring field containing file names to be read. This can be combined with DirScan to read files. ProtobufFileSource does not currently support moving files after processing.
+</p>
+<p>
+<codeblock>
+<![CDATA[stream<blob record> serializedRecords = ProtobufFileSource(fileNames) {
+}
+]]></codeblock>
+
+</p>
+</section>
+</refbody>
+</reference>

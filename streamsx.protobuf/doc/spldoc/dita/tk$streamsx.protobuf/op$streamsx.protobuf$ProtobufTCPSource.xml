@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "reference.dtd">
+<reference id="spldoc_operator">
+<title>Operator <tt>ProtobufTCPSource</tt></title>
+<refbody>
+<section>
+<p>
+<xref href="../toolkits/toolkits.xml">Toolkits</xref> &gt; <xref href="tk$streamsx.protobuf.xml">streamsx.protobuf 1.0.0.0</xref> &gt; <xref href="ns$streamsx.protobuf.xml">streamsx.protobuf</xref> &gt; ProtobufTCPSource</p>
+</section>
+<section outputclass="splprimop">
+  <image href="../../image/tk$streamsx.protobuf/op$streamsx.protobuf$ProtobufTCPSource.svg" width="872" height="112">
+    <alt>Primitive operator image not displayed. Problem loading file: ../../image/tk$streamsx.protobuf/op$streamsx.protobuf$ProtobufTCPSource.svg
+</alt>
+  </image>
+</section>
+<section>
+
+<p><tt>ProtobufTCPSource</tt> takes in a binary dump of Protobuf records in a common, but strict format. Each record is prepended by a 4 byte header indicating the length of the Protobuf message, as shown:
+</p>
+<p>
+<codeblock>
+<![CDATA[[4 bytes recordLength] [n bytes record] [4 bytes recordLength] [n bytes record] ...
+]]></codeblock>
+
+</p>
+<p>The <tt>port</tt> parameter specifies the port that the server will listen to.
+</p>
+<p><tt>ProtobufTCPSource</tt> does not support any authentication at this time.
+</p>
+  <dl><dlentry><dt><xref href="op$streamsx.protobuf$ProtobufTCPSource$1.xml">Examples</xref>
+</dt><dd>
+</dd></dlentry></dl>
+</section>
+<section>
+<title outputclass="splhead-1">Summary</title>
+<dl compact="yes">
+ <dlentry>
+  <dt>Ports</dt>
+  <dd>This operator has 0 input ports and 1 output port.</dd>
+ </dlentry>
+ <dlentry>
+  <dt>Windowing</dt>
+  <dd>This operator does not accept any windowing configurations.</dd>
+ </dlentry>
+ <dlentry>
+  <dt>Parameters</dt>
+  <dd>This operator supports 1 parameter.
+<p> Required: 
+<xref href="#spldoc_operator/parameter__port">port</xref>
+
+</p></dd>
+ </dlentry>
+ <dlentry>
+  <dt>Metrics</dt>
+  <dd>This operator does not report any metrics.</dd>
+ </dlentry>
+</dl></section>
+<section>
+<title outputclass="splhead-1">Properties</title>
+<dl compact="yes">
+ <dlentry>
+  <dt>Implementation</dt>
+  <dd>C++</dd>
+ </dlentry>
+ <dlentry>
+  <dt><xref href="../references/OperatorModel.xml#spldoc_reference_operator_model/context__providessinglethreadedexecutioncontext">Threading</xref></dt>
+  <dd><tt>Never</tt> - Operator never provides a single threaded execution context.</dd>
+ </dlentry>
+</dl>
+</section>
+<section>
+<p outputclass="splhead-1"><b><xref href="../references/OperatorModel.xml#spldoc_reference_operator_model/output_port_set">Output Ports</xref></b></p><dl>
+  <dlentry>
+     <dt>Assignments</dt>
+     <dd>This operator does not allow assignments to output attributes.</dd>
+  </dlentry>
+</dl>
+ <dl>
+  <dlentry>
+   <dt>Ports (0)</dt>
+   <dd>
+    <p></p>
+    <dl>
+     <dlentry>
+      <dt>Properties</dt>
+      <dd>   <sl>
+     <sli><xref href="../references/OperatorModel.xml#spldoc_reference_operator_model/output_port_set__optional">Optional</xref>: false
+     </sli>
+   </sl>
+   <sl>
+     <sli><xref href="../references/OperatorModel.xml#spldoc_reference_operator_model/output_port_set__tuplemutationallowed">TupleMutationAllowed</xref>: true
+     </sli>
+     <sli><xref href="../references/OperatorModel.xml#spldoc_reference_operator_model/output_port_set__windowpunctuationoutputmode">WindowPunctuationOutputMode</xref>: Free
+     </sli>
+   </sl>
+</dd>     </dlentry>
+    </dl>
+    <p></p>
+   </dd>
+  </dlentry>
+</dl>
+</section>
+<section>
+<p outputclass="splhead-1"><b><xref href="../references/OperatorModel.xml#spldoc_reference_operator_model/parameters">Parameters</xref></b></p>This operator supports 1 parameter.
+<p> Required: 
+<xref href="#spldoc_operator/parameter__port">port</xref>
+
+</p><dl>
+  <dlentry id="parameter__port">
+     <dt><tt>port</tt></dt>
+     <dd>
+<p>Specifies the port to be used for the TCP server
+</p>
+  <dl>
+    <dlentry>
+     <dt>Properties</dt>
+     <dd>   <sl>
+     <sli><xref href="../references/OperatorModel.xml#spldoc_reference_operator_model/parameters__parameter__type">Type</xref>: uint32
+     </sli>
+     <sli><xref href="../references/OperatorModel.xml#spldoc_reference_operator_model/parameters__parameter__cardinality">Cardinality</xref>: 1
+     </sli>
+     <sli><xref href="../references/OperatorModel.xml#spldoc_reference_operator_model/parameters__parameter__optional">Optional</xref>: false
+     </sli>
+     <sli><xref href="../references/OperatorModel.xml#spldoc_reference_operator_model/parameters__parameter__expressionmode">ExpressionMode</xref>: Constant
+     </sli>
+   </sl>
+     <p></p>     </dd>
+    </dlentry>
+  </dl>
+     </dd>
+  </dlentry>
+</dl>
+</section>
+<section>
+<p outputclass="splhead-1"><b><xref href="../references/OperatorModel.xml#spldoc_reference_operator_model/context__dependencies">Libraries</xref></b></p><dl>
+ <dlentry>
+  <dt><tt>protobuf-server</tt>  </dt>
+<dd/>  <dd><xref href="../references/OperatorModel.xml#spldoc_reference_operator_model/context__dependencies__managedlibrary__lib">Library Name</xref>: <tt>streams_boost_system, streams_boost_thread, streams_boost_regex, streams_boost_serialization</tt></dd>
+  <dd><xref href="../references/OperatorModel.xml#spldoc_reference_operator_model/context__dependencies__managedlibrary__libpath">Library Path</xref>: <tt>@STREAMS_INSTALL@/ext/lib</tt></dd>
+  <dd><xref href="../references/OperatorModel.xml#spldoc_reference_operator_model/context__dependencies__managedlibrary__includepath">Include Path</xref>: <tt>@STREAMS_INSTALL@/ext/include</tt></dd>
+ </dlentry>
+</dl>
+</section>
+</refbody>
+</reference>
+

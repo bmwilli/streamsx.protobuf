@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "reference.dtd">
+
+<reference id="spldoc_page">
+<title>Examples</title>
+<refbody>
+<section>
+<p>
+<xref href="../toolkits/toolkits.xml">Toolkits</xref> &gt; <xref href="tk$streamsx.protobuf.xml">streamsx.protobuf 1.0.0.0</xref> &gt; <xref href="ns$streamsx.protobuf.xml">streamsx.protobuf</xref> &gt; <xref href="op$streamsx.protobuf$ProtobufTCPSource.xml">ProtobufTCPSource</xref> &gt; Examples</p>
+</section>
+
+<section>
+</section>
+<section>
+<title>Examples
+</title>
+<p>
+<codeblock>
+<![CDATA[stream<blob record> serializedRecords = ProtobufTCPSource() {
+    param
+        port: 8080u;
+}
+]]></codeblock>
+
+</p>
+</section>
+</refbody>
+</reference>

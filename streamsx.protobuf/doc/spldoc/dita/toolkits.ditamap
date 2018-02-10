@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
+<map id="spldoc_map">
+<title>Toolkits</title>
+<topicref navtitle="Toolkits" locktitle="yes" href="toolkits/toolkits.xml" toc="yes" linking="normal">
+<topicref navtitle="Namespaces" locktitle="yes" href="toolkits/ix$Namespace.xml" toc="yes" linking="none">
+</topicref>
+<topicref navtitle="Operators" locktitle="yes" href="toolkits/ix$Operator.xml" toc="yes" linking="none">
+</topicref>
+<topicref navtitle="streamsx.protobuf 1.0.0.0" locktitle="yes" href="tk$streamsx.protobuf/tk$streamsx.protobuf.xml" toc="yes" linking="none">
+<topicref navtitle="Namespaces" locktitle="yes" href="tk$streamsx.protobuf/ix$Namespace.xml" toc="yes" linking="none">
+</topicref>
+<topicref navtitle="Operators" locktitle="yes" href="tk$streamsx.protobuf/ix$Operator.xml" toc="yes" linking="none">
+</topicref>
+<topicref navtitle="streamsx.protobuf" locktitle="yes" href="tk$streamsx.protobuf/ns$streamsx.protobuf.xml" toc="yes" linking="none">
+<topicref navtitle="ProtobufBuild" locktitle="yes" href="tk$streamsx.protobuf/op$streamsx.protobuf$ProtobufBuild.xml" toc="yes" linking="none">
+<topicref href="tk$streamsx.protobuf/op$streamsx.protobuf$ProtobufBuild$1.xml" toc="yes" linking="none">
+</topicref>
+</topicref>
+<topicref navtitle="ProtobufFileSource" locktitle="yes" href="tk$streamsx.protobuf/op$streamsx.protobuf$ProtobufFileSource.xml" toc="yes" linking="none">
+<topicref href="tk$streamsx.protobuf/op$streamsx.protobuf$ProtobufFileSource$1.xml" toc="yes" linking="none">
+</topicref>
+</topicref>
+<topicref navtitle="ProtobufParse" locktitle="yes" href="tk$streamsx.protobuf/op$streamsx.protobuf$ProtobufParse.xml" toc="yes" linking="none">
+<topicref href="tk$streamsx.protobuf/op$streamsx.protobuf$ProtobufParse$1.xml" toc="yes" linking="none">
+</topicref>
+</topicref>
+<topicref navtitle="ProtobufTCPSource" locktitle="yes" href="tk$streamsx.protobuf/op$streamsx.protobuf$ProtobufTCPSource.xml" toc="yes" linking="none">
+<topicref href="tk$streamsx.protobuf/op$streamsx.protobuf$ProtobufTCPSource$1.xml" toc="yes" linking="none">
+</topicref>
+</topicref>
+</topicref>
+</topicref>
+<topicref navtitle="Operator Model" locktitle="yes" href="references/OperatorModel.xml" toc="yes" linking="none">
+</topicref>
+</topicref>
+</map>
+

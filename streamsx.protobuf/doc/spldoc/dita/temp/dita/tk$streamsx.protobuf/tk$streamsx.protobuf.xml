@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?workdir /home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/temp/dita/tk$streamsx.protobuf?><?path2project ../?><reference id="spldoc_toolkit" xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/" ditaarch:DITAArchVersion="1.2" domains="(topic reference)                            (topic hi-d)                             (topic ut-d)                             (topic indexing-d)                            (topic hazard-d)                            (topic abbrev-d)                            (topic pr-d)                             (topic sw-d)                            (topic ui-d)    " class="- topic/topic       reference/reference " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="reference:1">
+<title outputclass="spltoolkitname" class="- topic/title " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="title:1">Toolkit <tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="tt:1">streamsx.protobuf 1.0.0.0</tt></title>
+<refbody class="- topic/body        reference/refbody " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="refbody:1">
+<section class="- topic/section " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="section:1">
+<p class="- topic/p " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="p:1">
+<xref href="../toolkits/toolkits.xml" class="- topic/xref " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="xref:1">Toolkits</xref> &gt; streamsx.protobuf 1.0.0.0</p>
+</section>
+<section class="- topic/section " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="section:2">
+<title outputclass="splhead-1" class="- topic/title " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="title:2">General Information</title>
+
+<p class="- topic/p " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="p:2">IBM Streams Protobuf Toolkit
+</p>
+<p class="- topic/p " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="p:3">The <tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="tt:2">streamsx.protobuf</tt> toolkit contains operators for interacting with serialized protocol buffer messages. It contains two conversion operators and two simple source operators.
+</p>
+<p class="- topic/p " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="p:4">Currently, this toolkit only support <tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="tt:3">proto2</tt> syntax.
+</p>
+<p class="- topic/p " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="p:5">Examples can be found in the <tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="tt:4">streamsx.protobuf.samples</tt> directory.
+</p>
+</section>
+<section class="- topic/section " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="section:3">
+<title class="- topic/title " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="title:3">Conversion operators
+</title>
+<p class="- topic/p " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="p:6">
+<ol class="- topic/ol " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="ol:1">
+<li class="- topic/li " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="li:1"> <tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="tt:5">ProtobufParse</tt> takes a tuple with a <tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="tt:6">blob</tt> field and emits a tuple matching the <tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="tt:7">protoMessage</tt>    parameter type it is given.</li>
+<li class="- topic/li " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="li:2">
+<p class="- topic/p " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="p:7"> <tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="tt:8">ProtobufBuild</tt> takes a tuple as generated by the <tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="tt:9">spl-schema-from-protobuf</tt> script (see below)    and emits a serialized version in the Protobuf serialization format as a blob.
+</p></li>
+</ol>
+</p>
+</section>
+<section class="- topic/section " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="section:4">
+<title class="- topic/title " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="title:4">Source operators
+</title>
+<p class="- topic/p " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="p:8">
+<ol class="- topic/ol " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="ol:2">
+<li class="- topic/li " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="li:3"> <tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="tt:10">ProtobufTCPSource</tt> creates a TCP server that will accept connections which can pass 1 or    more Protobuf messages, each prefixed with a 4-byte record length.</li>
+<li class="- topic/li " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="li:4">
+<p class="- topic/p " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="p:9"> <tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="tt:11">ProtobufFileSource</tt> reads binary files that contain Protobuf messages, each prefixed with    a 4-byte record length.
+</p></li>
+</ol>
+</p>
+</section>
+<section class="- topic/section " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="section:5">
+<title class="- topic/title " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="title:5">Configuration
+</title>
+<p class="- topic/p " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="p:10">The <tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="tt:12">streamsx.protobuf</tt> toolkit requires the Protobuf libraries are installed on the compiling machine. Two environment variables are required: <tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="tt:13">$STREAMSX_PROTOBUF_LIBPATH</tt> and <tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="tt:14">$STREAMSX_PROTOBUF_INCLUDEPATH</tt>.
+</p>
+</section>
+<section class="- topic/section " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="section:6">
+<title class="- topic/title " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="title:6">Generating schemas
+</title>
+<p class="- topic/p " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="p:11">This toolkit contains a script under <tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="tt:15">streamsx.protobuf/bin</tt> called <tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="tt:16">spl-schema-from-protobuf</tt>. This script will generate tuples in SPL to match the Protobuf messages in .proto files. This is required to use the conversion operators. <tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="tt:17">ProtobufParse</tt> must emit the tuple generated by the script corresponding to the Protobuf message it is receiving, and <tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="tt:18">ProtobufBuild</tt> must receive the tuple generated by the script corresponding to the Protobuf message it is sending.
+</p>
+<p class="- topic/p " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="p:12">For all message and enum names, <tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="tt:19">_pb</tt> is appended to the identifier. For all field names or enum values, <tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="tt:20">_</tt> is appended to the identifier. An example can be seen in <tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="tt:21">streamsx.protobuf.samples</tt>.
+</p>
+</section>
+<section class="- topic/section " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="section:7">
+<title class="- topic/title " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="title:7">Usage
+</title>
+<p class="- topic/p " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="p:13">To use this toolkit, create an empty application. Place your <tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="tt:22">.proto</tt> file inside <tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="tt:23">&lt;application&gt;/impl</tt>.
+</p>
+<p class="- topic/p " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="p:14">Call: <tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="tt:24">&lt;path to streamsx.protobuf toolkit&gt;/bin/spl-schema-from-protobuf impl &lt;your protobuf file name&gt;</tt>
+</p>
+<p class="- topic/p " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="p:15">This will generate the SPL schema to use with the conversion operators. Next, you will invoke one of the operators within your composite. If you have a Protobuf message named <tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="tt:25">my.package.MyMessage</tt>, then given the file:
+</p>
+<p class="- topic/p " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="p:16">
+<codeblock xml:space="preserve" class="+ topic/pre pr-d/codeblock " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="codeblock:1">
+<![CDATA[// MyMessage.proto
+
+syntax = "proto2";
+
+package my.package;
+
+message MyMessage {
+    required string field = 1;
+}
+]]></codeblock>
+
+</p>
+<p class="- topic/p " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="p:17">The following SPL will be generated:
+</p>
+<p class="- topic/p " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="p:18">
+<codeblock xml:space="preserve" class="+ topic/pre pr-d/codeblock " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="codeblock:2">
+<![CDATA[// my.package/MyMessage\_pb.spl
+
+namespace my.package;
+
+use my.package::*;
+
+type MyMessage_pb = tuple<
+    rstring field_
+>;
+]]></codeblock>
+
+</p>
+<p class="- topic/p " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="p:19"> ProtobufParse invocation
+</p>
+<p class="- topic/p " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="p:20">To use the ProtobufParse operator, it is invoked like this:
+</p>
+<p class="- topic/p " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="p:21">
+<codeblock xml:space="preserve" class="+ topic/pre pr-d/codeblock " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="codeblock:3">
+<![CDATA[stream<blob recordData> serializedRecords = ProtobufFileSource() {
+    param
+        file: "<binary file>";
+}
+
+stream<my.package::MyMessage_pb> myMessages = ProtobufParse(serializedRecords) {
+    param
+        dataAttribute: recordData;
+        protoMessage: "my.package.MyMessage";
+        protoDirectory: "impl";
+        protoRootFile: "MyMessage.proto";
+}
+]]></codeblock>
+
+</p>
+<p class="- topic/p " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="p:22"> ProtobufBuild invocation
+</p>
+<p class="- topic/p " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="p:23">To use the ProtobufBuild operator, it is invoked like this:
+</p>
+<p class="- topic/p " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="p:24">
+<codeblock xml:space="preserve" class="+ topic/pre pr-d/codeblock " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="codeblock:4">
+<![CDATA[stream<my.package::MyMessage_pb> myMessages = Beacon() {
+    param
+        period: 1.0;
+    output
+        myMessages: field_ = "<value>";
+}
+
+stream<blob recordData> serializedRecords = ProtobufParse(myMessages) {
+    param
+        protoMessage: "my.package.MyMessage";
+        protoDirectory: "impl";
+        protoRootFile: "MyMessage.proto";
+}
+]]></codeblock>
+
+</p>
+</section>
+<section class="- topic/section " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="section:8">
+<title class="- topic/title " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="title:8">Under the hood
+</title>
+<p class="- topic/p " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="p:25">How do the converters work?
+</p>
+<p class="- topic/p " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="p:26">They utilize a grammar file in <tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="tt:26">yapp</tt>, which is a Perl port of <tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="tt:27">yacc</tt>. The grammar defines the <tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="tt:28">proto2</tt> syntax according to the Google language specification sheet. The <tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="tt:29">yapp</tt> grammar is compiled into a Perl module, which generates a parse tree containing all message and enum definitions within the file. For each import from the root file, this process is repeated until all files have been processed.
+</p>
+<p class="- topic/p " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="p:27">The Build/Parse operators iterate through this parse tree to map Protobuf message values into and out of Streams tuples. At compile time, these operators run this parser to create the tree, and then they run the <tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="tt:30">protoc</tt> command to generate the C++ that is the messages will use. The C++ is compiled into a shared object library named <tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="tt:31">libcustomproto.so</tt>, which is stored in the application directory&apos;s <tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="tt:32">impl/lib</tt>. This means that if more than one Build and/or Parse operator exists in the same composite, they cannot be compiled in parallel and they must used the same Protobuf definitions. Otherwise, race conditions will occur and one or both will be non-functional at run time.
+</p>
+<p class="- topic/p " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="p:28">Variable mapping is generated recursively, so infinitely complex messages can be handled. There are two limitations: These operators cannot handle <tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="tt:33">group</tt> fields or <tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="tt:34">oneof</tt> fields. Oneof fields are planned for future implementation, but group fields have been deprecated by Google in favor of nested messages.
+</p>
+<p class="- topic/p " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="p:29">Every available effort to ensure the readability of the generated code was made, as this makes debugging issues much easier. Feel free to take a look. However, all variable names are randomly generated to reduce the likelihood of a name collision. Name collisions are not checked beforehand, as the likelihood of not having a name collision in a message with 100 fields is (1-1/52^20)^100, which is infintessimally small.
+</p>
+<p class="- topic/p " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="p:30">Some older versions of the <tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="tt:35">protoc</tt> compiler do not require the first line to state <tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="tt:36">syntax = &quot;proto2&quot;;</tt>, but this parser requires the statement to be present regardless of the version of <tt class="+ topic/ph hi-d/tt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="tt:37">protoc</tt> installed.
+</p>
+<dl class="- topic/dl " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="dl:1">
+  <dlentry class="- topic/dlentry " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="dlentry:1">
+  <dt class="- topic/dt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="dt:1">Version</dt>
+  <dd class="- topic/dd " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="dd:1">1.0.0.0</dd>
+  </dlentry>
+  <dlentry class="- topic/dlentry " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="dlentry:2">
+  <dt class="- topic/dt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="dt:2">Required Product Version</dt>
+  <dd class="- topic/dd " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="dd:2">4.0.0.0</dd>
+  </dlentry>
+  <dlentry class="- topic/dlentry " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="dlentry:3">
+  <dt class="- topic/dt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="dt:3">Author</dt>
+  <dd class="- topic/dd " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="dd:3">IBMStreams</dd>
+  </dlentry>
+</dl>
+</section>
+<section class="- topic/section " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="section:9">
+  <title outputclass="splhead-1" class="- topic/title " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="title:9">Indexes</title>
+  <dl class="- topic/dl " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="dl:2">
+    <dlentry class="- topic/dlentry " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="dlentry:4"><dt class="- topic/dt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="dt:4"></dt><dd class="- topic/dd " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="dd:4"></dd></dlentry>
+    <dlentry class="- topic/dlentry " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="dlentry:5"><dt class="- topic/dt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="dt:5"><xref href="ix$Namespace.xml" class="- topic/xref " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="xref:2">Namespaces</xref></dt><dd class="- topic/dd " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="dd:5"></dd></dlentry>
+    <dlentry class="- topic/dlentry " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="dlentry:6"><dt class="- topic/dt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="dt:6"><xref href="ix$Operator.xml" class="- topic/xref " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="xref:3">Operators</xref></dt><dd class="- topic/dd " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="dd:6"></dd></dlentry>
+  </dl>
+</section>
+<section class="- topic/section " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="section:10">
+  <title outputclass="splhead-1" class="- topic/title " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="title:10">Namespaces</title>
+  <dl class="- topic/dl " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="dl:3">
+    <dlentry class="- topic/dlentry " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="dlentry:7">
+      <dt outputclass="splpart" class="- topic/dt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="dt:7"><xref href="ns$streamsx.protobuf.xml" class="- topic/xref " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="xref:4">streamsx.protobuf</xref></dt>
+      <dd class="- topic/dd " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="dd:7"></dd>
+      <dd class="- topic/dd " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="dd:8"><dl class="- topic/dl " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="dl:4"><dlentry class="- topic/dlentry " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="dlentry:8">
+        <dt class="- topic/dt " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="dt:8">Operators</dt>
+        <dd class="- topic/dd " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="dd:9">
+<sl class="- topic/sl " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="sl:1">
+<sli class="- topic/sli " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="sli:1"><xref href="op$streamsx.protobuf$ProtobufBuild.xml" class="- topic/xref " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="xref:5">ProtobufBuild</xref></sli>
+<sli class="- topic/sli " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="sli:2"><xref href="op$streamsx.protobuf$ProtobufFileSource.xml" class="- topic/xref " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="xref:6">ProtobufFileSource</xref></sli>
+<sli class="- topic/sli " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="sli:3"><xref href="op$streamsx.protobuf$ProtobufParse.xml" class="- topic/xref " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="xref:7">ProtobufParse</xref></sli>
+<sli class="- topic/sli " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="sli:4"><xref href="op$streamsx.protobuf$ProtobufTCPSource.xml" class="- topic/xref " xtrf="/home/streamsadmin/git/bmwilli/streamsx.protobuf/streamsx.protobuf/streamsx.protobuf/doc/spldoc/dita/tk$streamsx.protobuf/tk$streamsx.protobuf.xml" xtrc="xref:8">ProtobufTCPSource</xref></sli>
+</sl>
+        </dd>
+      </dlentry></dl></dd>
+     </dlentry>  </dl>
+</section>
+</refbody>
+</reference>
